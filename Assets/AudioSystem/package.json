@@ -1,0 +1,17 @@
+{
+  "author": {
+    "email": "327429979@qq.com",
+    "name": "Wolffuroll",
+    "url": "https://wolffurry.com"
+  },
+  "dependencies": {
+  },
+  "description": "Simple Audio system framework",
+  "displayName": "Wolffuroll Audio System",
+  "keywords": [
+    "audio",
+    "audio system"
+  ],
+  "name": "com.wolffurry.audiosystem",
+  "version": "1.0.0"
+}

@@ -1,0 +1,17 @@
+{
+  "author": {
+    "email": "327429979@qq.com",
+    "name": "Wolffuroll",
+    "url": "https://wolffurry.com"
+  },
+  "dependencies": {
+  },
+  "description": "Simple UI system framework",
+  "displayName": "Wolffuroll UI System",
+  "keywords": [
+    "dialogue",
+    "dialoge"
+  ],
+  "name": "com.wolffurry.uisystem",
+  "version": "1.0.0"
+}
