@@ -12,6 +12,8 @@ namespace GameCore
 
         public BGMTrackManager bgmTrackManager;
 
+        public MainCamCtrl mainCamControl;
+
         private void Awake()
         {
             if (instance && instance != null)
