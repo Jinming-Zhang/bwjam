@@ -1625,7 +1625,7 @@ namespace Febucci.UI
         void UpdateMesh()
         {
             //Updates the mesh
-            for (int i = 0; i < textInfo.characterCount; i++)
+            for (int i = 0; i < textInfo.characterCount && i < characters.Length; i++)
             {
                 //Avoids updating if we're on an invisible character, like a spacebar
                 //Do not switch this with "i<visibleCharacters", since the plugin has to update not yet visible characters
