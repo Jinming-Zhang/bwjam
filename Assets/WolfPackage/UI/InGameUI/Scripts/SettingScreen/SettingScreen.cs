@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using WolfUISystem;
 
-namespace GameUI
+namespace WolfUISystem.Presets
 {
     [System.Serializable]
     public class SettingsMap

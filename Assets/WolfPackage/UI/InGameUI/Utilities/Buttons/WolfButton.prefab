@@ -282,7 +282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 362cdbc283a1c43a7abec33080b04398, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -348,17 +348,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3fdb5584a7542aac30553c5508cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableSpriteSwap: 0
   buttonImage: {fileID: 5745985847353984377}
-  normalSprite: {fileID: 21300000, guid: 362cdbc283a1c43a7abec33080b04398, type: 3}
-  hoveringSprite: {fileID: 21300000, guid: a5a4c7809bc8a4bad8dca1aebba59b46, type: 3}
-  clickedSprite: {fileID: 21300000, guid: 362cdbc283a1c43a7abec33080b04398, type: 3}
+  normalSprite: {fileID: 0}
+  hoveringSprite: {fileID: 0}
+  clickedSprite: {fileID: 0}
   shrinkScale: 0.9
   shrinkDuration: 0.15
   audioSource: {fileID: 4329247633439767265}
   playSfxOnEnter: 1
   playSfxOnClick: 1
-  sfxEnterClip: {fileID: 8300000, guid: 9dedaa5c5ea812740ad47dc0a4060c9a, type: 3}
-  sfxClickClip: {fileID: 8300000, guid: 4cba78a5adea53c4e85e5ba2ad5b674a, type: 3}
+  sfxEnterClip: {fileID: 0}
+  sfxClickClip: {fileID: 0}
 --- !u!82 &4329247633439767265
 AudioSource:
   m_ObjectHideFlags: 0
