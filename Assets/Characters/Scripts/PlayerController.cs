@@ -1,51 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-public class PlayerController : MonoBehaviour, IPausableComponent
+namespace GamePlay
 {
-	[SerializeField]
-	float moveSpeed = 1f;
+    public class PlayerController : MonoBehaviour, IPausableComponent
+    {
+        private static PlayerController instance;
+        public static PlayerController Instance => instance;
+        [SerializeField]
+        PlayerMovementBehaviour moveBehaviour;
+        bool paused;
+        private void Awake()
+        {
+            if (instance && instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
 
-	Vector2 movement;
-	bool paused;
-	// Start is called before the first frame update
-	void Start()
-	{
-	}
+        private void Start()
+        {
+            PlayerInput playerInput = GetComponent<PlayerInput>();
+            if (playerInput)
+            {
+                moveBehaviour.Initialize(gameObject, playerInput);
+            }
+            else
+            {
+                Debug.LogError("PlayerController: Could not found PlayerInput to initialize PlayerMovementBehaviour");
+            }
+        }
 
-	// Update is called once per frame
-	void Update()
-	{
-		if (!paused)
-		{
-			Vector2 delta = moveSpeed * movement * Time.deltaTime;
-			transform.position =
-				transform.position + new Vector3(delta.x, delta.y, 0);
-		}
-	}
+        // Update is called once per frame
+        void Update()
+        {
+        }
+        private void FixedUpdate()
+        {
+            if (!paused)
+            {
+                moveBehaviour.UpdateMovement();
+            }
+        }
+        public void Pause()
+        {
+            paused = true;
+        }
 
-	public void OnPlayerMoved(CallbackContext ctx)
-	{
-		if (ctx.performed)
-		{
-			movement = ctx.ReadValue<Vector2>();
-		}
-		else if (ctx.canceled)
-		{
-			movement = Vector2.zero;
-		}
-	}
-
-	public void Pause()
-	{
-		paused = true;
-	}
-
-	public void Resume()
-	{
-		paused = false;
-	}
+        public void Resume()
+        {
+            paused = false;
+        }
+    }
 }

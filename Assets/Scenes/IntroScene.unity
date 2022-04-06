@@ -1100,27 +1100,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915522745926562181, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6915522746039524936, guid: 57e2314a20c16174ead42b7d724108fd, type: 3}
