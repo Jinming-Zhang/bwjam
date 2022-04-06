@@ -17,9 +17,6 @@ namespace WolfUISystem.Presets
 		[SerializeField]
 		string continueActionName = "Continue";
 		string previousActionMapName;
-		Action onConversationFinished;
-
-		DialogueConversation currentConversation;
 
 		[Header("Dialogue Panel")]
 		[SerializeField]
@@ -40,6 +37,16 @@ namespace WolfUISystem.Presets
 		[SerializeField]
 		DialogueOptionButton optionButton;
 
+		Action onConversationFinished;
+
+		DialogueConversation currentConversation;
+		// Text Revealing
+		[Header("Revealing Text Config")]
+		[SerializeField]
+		[Range(0, 40)]
+		int charPerSec = 20;
+		Coroutine revealTextCR;
+		string revealingText;
 		public override void Initialize()
 		{
 		}
@@ -158,11 +165,24 @@ namespace WolfUISystem.Presets
 			{
 				if (!string.IsNullOrEmpty(component.SpeechLine))
 				{
-					speech.text = component.SpeechLine;
+					revealTextCR = StartCoroutine(RevealTextCR());
 				}
 				else
 				{
 					speech.text = string.Empty;
+				}
+				IEnumerator RevealTextCR()
+				{
+					speech.text = component.SpeechLine;
+					revealingText = speech.text;
+					speech.maxVisibleCharacters = 0;
+					while (speech.maxVisibleCharacters < speech.text.Length)
+					{
+						speech.maxVisibleCharacters++;
+						yield return new WaitForSeconds(1f / charPerSec);
+					}
+					revealTextCR = null;
+					revealingText = string.Empty;
 				}
 			}
 
@@ -190,7 +210,17 @@ namespace WolfUISystem.Presets
 		{
 			if (ctx.performed)
 			{
-				UpdateDialoguePanel();
+				if (revealTextCR != null)
+				{
+					StopCoroutine(revealTextCR);
+					revealTextCR = null;
+					speech.maxVisibleCharacters = revealingText.Length;
+					revealingText = string.Empty;
+				}
+				else
+				{
+					UpdateDialoguePanel();
+				}
 			}
 		}
 	}

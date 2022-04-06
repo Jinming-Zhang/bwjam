@@ -713,15 +713,32 @@
                     "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "InGameUI",
+            "id": "236402cd-6132-4767-a7b7-6345fcfecfcb",
+            "actions": [
+                {
+                    "name": "ToggleIngameUIOptions",
+                    "type": "Button",
+                    "id": "e09d904e-37c2-4ac2-b132-ab6572f6bbe4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "1fd7d0fb-e6cd-475d-b81e-bf1ed5d7ddd6",
+                    "id": "9da26305-8592-42d5-8ea9-05463d3412fe",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Continue",
+                    "action": "ToggleIngameUIOptions",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

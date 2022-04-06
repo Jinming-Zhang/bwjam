@@ -38,7 +38,7 @@ PrefabInstance:
     - target: {fileID: 5745985847353984377, guid: 4afaa1d5d2c04654d8666122108cebe0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}
     - target: {fileID: 6593536964763096206, guid: 4afaa1d5d2c04654d8666122108cebe0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df9a8d5016e789489ceecc3ca473784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSprite: {fileID: 21300000, guid: 1a1da36a104725048b8d2388fb8d321d, type: 3}
-  deselectedSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  selectedSprite: {fileID: 21300000, guid: f588f3d58e863484592493a095d1c37a, type: 3}
+  deselectedSprite: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}

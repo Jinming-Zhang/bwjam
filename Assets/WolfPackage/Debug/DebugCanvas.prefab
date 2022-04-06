@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015e7aa8ac44717428f35cc8fd492363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testConversation: {fileID: 11400000, guid: c38071791d49f0e4fb7bf7b91dc37dfe, type: 2}
 --- !u!1 &6915522745926562180
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: traninn out with text
+  m_text: Back to intro
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -859,7 +860,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.05
+  m_fontSize: 69.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1022,10 +1023,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6915522745889230760}
-        m_TargetAssemblyTypeName: DebugCanvas, Assembly-CSharp
-        m_MethodName: TranInOut
-        m_Mode: 6
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameCore.GameManager, Assembly-CSharp
+        m_MethodName: BackToIntroScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

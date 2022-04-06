@@ -33,6 +33,11 @@ public class TransitionScreen : ScreenBase
         transitionImage.sprite = s;
     }
 
+	/// <summary>
+	/// Start with transparent and black out current screen 
+	/// </summary>
+	/// <param name="finishedCB"></param>
+	/// <param name="showInfo"></param>
     public void FadeIn(Action finishedCB = null, bool showInfo = false)
     {
         transitionImage.type = Image.Type.Sliced;

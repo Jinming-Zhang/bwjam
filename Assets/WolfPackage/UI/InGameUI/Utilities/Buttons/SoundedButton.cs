@@ -68,7 +68,11 @@ public class SoundedButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 			buttonImage.sprite = normalSprite;
 		}
 	}
-
+	private void OnEnable()
+	{
+		GetComponent<RectTransform>().localScale = Vector3.one;
+	}
+	
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		if (animationCR != null)

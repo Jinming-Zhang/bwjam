@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using WolfUISystem;
 
-public class HudScreen : ScreenBase
+namespace WolfUISystem.Presets
 {
-    public override void Initialize()
-    {
-    }
+	public class HudScreen : ScreenBase
+	{
+		public override void Initialize()
+		{
+		}
+		public void OnHelpButtonClicked()
+		{
+			UIManager.Instance.PushScreen<SettingScreen>();
+		}
+	}
 }

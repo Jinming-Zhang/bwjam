@@ -26,10 +26,6 @@ namespace WolfUISystem
         }
 
         public abstract void Initialize();
-        public virtual void Hide()
-        {
-            gameObject.SetActive(false);
-        }
 
         public virtual void OnScreenPoppedOut()
         {

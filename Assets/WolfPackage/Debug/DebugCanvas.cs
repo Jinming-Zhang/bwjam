@@ -8,11 +8,21 @@ using UnityEngine.InputSystem;
 
 public class DebugCanvas : MonoBehaviour
 {
+	private static DebugCanvas instance;
+	public static DebugCanvas Instance => instance;
 	[SerializeField]
 	DialogueConversation testConversation;
 	private void Awake()
 	{
-		DontDestroyOnLoad(gameObject);
+		if (instance && instance != this)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
 	}
 
 	public void TranInOut(bool hasText)

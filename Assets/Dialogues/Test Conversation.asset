@@ -30,7 +30,8 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: So Hard to use
+    Speech: 'so hard to use! long long long long long long long long long long long
+      long long long long long '
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 

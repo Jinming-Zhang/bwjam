@@ -71,8 +71,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -146,6 +146,10 @@ PrefabInstance:
     - target: {fileID: 295146789090423844, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
       propertyPath: m_Name
       value: ButtonPopupButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_text
+      value: Give Up
       objectReference: {fileID: 0}
     - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
       propertyPath: m_fontAsset
@@ -247,6 +251,38 @@ PrefabInstance:
       propertyPath: ButtonText
       value: 
       objectReference: {fileID: 1999810652921781788}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2329809413963774427}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnGiveUPClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WolfUISystem.Presets.PopupScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402824337653245787, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
 --- !u!224 &9125543290709500595 stripped
@@ -425,6 +461,10 @@ PrefabInstance:
       value: ButtonPopupButton (2)
       objectReference: {fileID: 0}
     - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_text
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -524,6 +564,38 @@ PrefabInstance:
       propertyPath: ButtonText
       value: 
       objectReference: {fileID: 4775511981687321779}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2329809413963774427}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuitClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WolfUISystem.Presets.PopupScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402824337653245787, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
 --- !u!224 &2820017183337842716 stripped
@@ -563,6 +635,10 @@ PrefabInstance:
     - target: {fileID: 295146789090423844, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
       propertyPath: m_Name
       value: ButtonPopupButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_text
+      value: Manual
       objectReference: {fileID: 0}
     - target: {fileID: 415810011784923651, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
       propertyPath: m_fontAsset
@@ -664,6 +740,38 @@ PrefabInstance:
       propertyPath: ButtonText
       value: 
       objectReference: {fileID: 8481784274046896307}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2329809413963774427}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnManualClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WolfUISystem.Presets.PopupScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101474246864835160, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402824337653245787, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 98e070c23cfcac747967d10035d32bb5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b343b5e06cf73234fb747ad913c56b6c, type: 3}
 --- !u!224 &1212006700963263516 stripped
