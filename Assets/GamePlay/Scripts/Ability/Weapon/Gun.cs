@@ -19,11 +19,9 @@ namespace GamePlay.Weapons
 
         [Header("Ammo Splitting")]
         [SerializeField]
-        int splitAmount = 1;
+        public int splitAmount = 1;
         [SerializeField]
         float splitAngle = 10f;
-        [SerializeField]
-        bool countSplittedAmmo = false;
 
         int currentAmmo;
         float cd => 1f / bulletPerSec;

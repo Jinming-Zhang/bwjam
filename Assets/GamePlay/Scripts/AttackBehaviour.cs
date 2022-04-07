@@ -9,6 +9,7 @@ public abstract class AttackBehaviour : ScriptableObject
     [SerializeField]
     protected Weapon weapon;
     protected Transform weaponPos;
+    public Weapon CurrentWeapon => weapon;
     public virtual void Initialize(GameObject owner, Transform weaponPos, params object[] args)
     {
         this.owner = owner;

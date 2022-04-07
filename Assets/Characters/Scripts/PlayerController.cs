@@ -7,7 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace GamePlay
 {
-    public class PlayerController : MonoBehaviour, IPausableComponent,IDamagable
+    public class PlayerController : MonoBehaviour, IPausableComponent, IDamagable
     {
         private static PlayerController instance;
         public static PlayerController Instance => instance;
@@ -21,6 +21,8 @@ namespace GamePlay
         Health health;
         [SerializeField]
         Cluemeter cluemeter;
+
+        public Weapon CurrentWeapon => attackBehaviour.CurrentWeapon;
 
         bool paused;
         private void Awake()
