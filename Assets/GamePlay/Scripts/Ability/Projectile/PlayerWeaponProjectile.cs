@@ -12,8 +12,7 @@ namespace GamePlay.Projectiles
             IDamagable target = collision.gameObject.GetComponent<IDamagable>();
             if (target != null)
             {
-                float dmg = Random.Range(0f, 1f) <= critHitProbability ? BaseDmg * critHitDmgMultiplier : BaseDmg;
-                target.TakeDamage(dmg, this);
+                target.TakeDamage(FinalDaage, this);
                 StopAllCoroutines();
                 Destroy(gameObject);
             }

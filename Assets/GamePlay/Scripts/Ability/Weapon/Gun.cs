@@ -11,6 +11,8 @@ namespace GamePlay.Weapons
         [SerializeField]
         protected float bulletPerSec;
         [SerializeField]
+        bool needReload = true;
+        [SerializeField]
         protected int clipSize;
         [SerializeField]
         protected float reloadTime;
@@ -27,9 +29,9 @@ namespace GamePlay.Weapons
         float cd => 1f / bulletPerSec;
         bool canAttack = true;
         Coroutine reloadCR;
-        public override void Initialize(params object[] args)
+        public override void Initialize(GameObject owner, params object[] args)
         {
-            base.Initialize(args);
+            base.Initialize(owner, args);
             currentAmmo = clipSize;
             canAttack = true;
         }
@@ -38,7 +40,14 @@ namespace GamePlay.Weapons
         {
             if (currentAmmo <= 0)
             {
-                Reload();
+                if (needReload)
+                {
+                    Reload();
+                }
+                else
+                {
+                    currentAmmo = clipSize;
+                }
             }
             else
             {
@@ -52,6 +61,7 @@ namespace GamePlay.Weapons
                         startDir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startDir;
                         Projectile p = Instantiate(projectileTemplate, pos.position, Quaternion.Euler(startDir));
 
+                        p.Initiailze(owner);
                         p.transform.right = startDir;
                         p.Launch(startDir);
                     }

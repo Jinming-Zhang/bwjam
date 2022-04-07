@@ -87,7 +87,15 @@ namespace GamePlay
 
         public void TakeDamage(float amount, MonoBehaviour source)
         {
-            Debug.Log("Player got hit");
+            if (source is BossDefaultWeaponProjectile bossDefaultProjectile)
+            {
+                Debug.Log("Player seduced by boss o 0");
+            }
+            else
+            {
+                Debug.Log("Player got hit");
+            }
         }
+
     }
 }

@@ -20,7 +20,11 @@ namespace GamePlay.Weapons
 
         public AudioSource AudioSource => weaponAudioSource;
 
-        public virtual void Initialize(params object[] args) { }
+        public GameObject owner;
+        public virtual void Initialize(GameObject owner, params object[] args)
+        {
+            this.owner = owner;
+        }
         public virtual void Fire(Transform pos, Vector2 direction)
         {
             if (fireSFX && weaponAudioSource && AudioSystem.Instance)

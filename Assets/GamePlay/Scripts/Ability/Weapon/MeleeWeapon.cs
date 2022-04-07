@@ -15,9 +15,9 @@ namespace GamePlay.Weapons
         float cd => 1f / attackPerSec;
         bool canAttack = true;
 
-        public override void Initialize(params object[] args)
+        public override void Initialize(GameObject src, params object[] args)
         {
-            base.Initialize(args);
+            base.Initialize(src, args);
             canAttack = true;
         }
 

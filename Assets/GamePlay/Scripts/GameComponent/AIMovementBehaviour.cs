@@ -10,21 +10,21 @@ namespace GamePlay
     {
         [Header("Movement")]
         [SerializeField]
-        float initialSpeed;
-        float ingameMovingSpeed;
+        protected float initialSpeed;
+        protected float ingameMovingSpeed;
 
         [Header("Attack")]
         [SerializeField]
-        float attackRange;
+        protected float attackRange;
         [SerializeField]
-        Weapon weaponTemplate;
-        Weapon weapon;
+        protected Weapon weaponTemplate;
+        protected Weapon weapon;
 
         [Header("Config")]
         [SerializeField]
-        bool updateIngameSpeed = true;
-        PlayerController player;
-        PlayerController Player
+        protected bool updateIngameSpeed = true;
+        protected PlayerController player;
+        protected PlayerController Player
         {
             get
             {
@@ -41,8 +41,8 @@ namespace GamePlay
             }
         }
 
-        Rigidbody2D _rb;
-        Rigidbody2D rb
+        protected Rigidbody2D _rb;
+        protected Rigidbody2D rb
         {
             get
             {
@@ -54,7 +54,7 @@ namespace GamePlay
             }
         }
 
-        Transform weaponTransform;
+        protected Transform weaponTransform;
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
@@ -64,7 +64,7 @@ namespace GamePlay
                 weaponTransform = wpnTran;
             }
             weapon = Instantiate(weaponTemplate);
-            weapon.Initialize();
+            weapon.Initialize(owner);
         }
 
         public override void UpdateMovement()
@@ -80,8 +80,7 @@ namespace GamePlay
                 // out of range, move to player
                 if (tarDirection.magnitude > attackRange)
                 {
-                    Vector2 velocity = Player.gameObject.transform.position - weaponTransform.position;
-                    rb.velocity = velocity.normalized * ingameMovingSpeed;
+                    rb.velocity = tarDirection.normalized * ingameMovingSpeed;
                 }
                 // attack player
                 else

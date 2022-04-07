@@ -14,7 +14,7 @@ public abstract class AttackBehaviour : ScriptableObject
     {
         this.owner = owner;
         this.weaponPos = weaponPos;
-        weapon.Initialize();
+        weapon.Initialize(owner);
     }
 
     public virtual void Update()

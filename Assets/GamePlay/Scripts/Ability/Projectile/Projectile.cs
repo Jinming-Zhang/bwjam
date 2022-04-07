@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Projectiles
@@ -26,7 +25,9 @@ namespace GamePlay.Projectiles
         protected float critHitDmgMultiplier = 1f;
         public float CritHitDmgMultiplier { get => critHitDmgMultiplier; set => critHitDmgMultiplier = value; }
 
+        protected float FinalDaage => Random.Range(0f, 1f) <= critHitProbability ? BaseDmg * critHitDmgMultiplier : BaseDmg;
 
+        public virtual void Initiailze(GameObject src, params object[] args) { }
         public virtual void Launch(Vector2 direction)
         {
             GetComponent<Rigidbody2D>().velocity = direction.normalized * Velocity;
