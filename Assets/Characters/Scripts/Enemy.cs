@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GamePlay;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    AIMovementBehaviour movementBehaviour;
+
+    private void Start()
+    {
+        //movementBehaviour.Initialize(gameObject);
+    }
+    private void Update()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        movementBehaviour.UpdateMovement();
     }
 }

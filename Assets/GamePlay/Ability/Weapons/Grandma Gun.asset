@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7e7941e79a3de45a6373a3d45aa426, type: 3}
+  m_Name: Grandma Gun
+  m_EditorClassIdentifier: 
+  criticalHitProbabilityMultiplier: 1
+  criticalHitDmgMultiplier: 1
+  fireSFX: {fileID: 0}
+  weaponAudioSource: {fileID: 0}
+  bulletPerSec: 0
+  clipSize: 0
+  reloadTime: 0
+  projectileTemplate: {fileID: 0}
+  splitAmount: 1
+  splitAngle: 10
+  countSplittedAmmo: 0
