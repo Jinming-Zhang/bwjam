@@ -9,17 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7e7941e79a3de45a6373a3d45aa426, type: 3}
-  m_Name: Grandma Gun
+  m_Script: {fileID: 11500000, guid: 1b6f84c2b2bdda9458ffb184932fc0f8, type: 3}
+  m_Name: Spirit Punch
   m_EditorClassIdentifier: 
   criticalHitProbabilityMultiplier: 1
   criticalHitDmgMultiplier: 1
   fireSFX: {fileID: 0}
   weaponAudioSource: {fileID: 0}
-  bulletPerSec: 0.2
-  clipSize: 100
-  reloadTime: 1
-  projectileTemplate: {fileID: 6260383179957074444, guid: b7ec65db43b8d514cb60e7faf6a3a469, type: 3}
-  splitAmount: 1
-  splitAngle: 10
-  countSplittedAmmo: 0
+  attackPerSec: 0.5
+  weaponTemplate: {fileID: 7876142212082729462, guid: 9ec81e25cac2dab49984eee8d3d8115c, type: 3}

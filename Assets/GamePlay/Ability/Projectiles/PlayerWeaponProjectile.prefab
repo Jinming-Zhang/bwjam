@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 6
-  baseDmg: 1
+  baseDmg: 0.2
   velocity: 20
   critHitProbability: 0.1
   critHitDmgMultiplier: 1

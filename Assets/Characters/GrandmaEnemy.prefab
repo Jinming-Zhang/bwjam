@@ -272,6 +272,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1556949904979448831, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
+      propertyPath: weaponTransform
+      value: 
+      objectReference: {fileID: 7633454448362709744}
+    - target: {fileID: 1556949904979448831, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
+      propertyPath: movementBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e444889952957249bbeff1d4bb4e23b, type: 2}
+    - target: {fileID: 1556949904979448831, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
+      propertyPath: movementBehaviourTemplate
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e444889952957249bbeff1d4bb4e23b, type: 2}
     - target: {fileID: 2990495078925001141, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_Name
       value: GrandmaEnemy
@@ -286,11 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3533304299352962616, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.46
+      value: -4.6314373
       objectReference: {fileID: 0}
     - target: {fileID: 3533304299352962616, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68
+      value: 2.0098166
       objectReference: {fileID: 0}
     - target: {fileID: 3533304299352962616, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -356,6 +368,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3621439551975500397, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
   m_PrefabInstance: {fileID: 1944421761172035386}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7633454448362709744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8292397033327310282, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
+  m_PrefabInstance: {fileID: 1944421761172035386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &5578803640971935636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -366,7 +383,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0042090416, y: 0.06734368}

@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace GamePlay.Projectiles
 {
-    public class PlayerWeaponProjectile : Projectile
+    public class BasicEnemyProjectile : Projectile
     {
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             IDamagable target = collision.gameObject.GetComponent<IDamagable>();

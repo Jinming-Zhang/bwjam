@@ -17,9 +17,11 @@ namespace GamePlay
         [SerializeField]
         float attackRange;
         [SerializeField]
+        Weapon weaponTemplate;
         Weapon weapon;
 
         [Header("Config")]
+        [SerializeField]
         bool updateIngameSpeed = true;
         PlayerController player;
         PlayerController Player
@@ -52,10 +54,16 @@ namespace GamePlay
             }
         }
 
-        public override void Initialize(GameObject owner, object args)
+        Transform weaponTransform;
+        public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
             ingameMovingSpeed = initialSpeed;
+            if (args.Length > 0 && args[0] is Transform wpnTran)
+            {
+                weaponTransform = wpnTran;
+            }
+            weapon = Instantiate(weaponTemplate);
             weapon.Initialize();
         }
 
@@ -68,18 +76,18 @@ namespace GamePlay
 
             if (Player)
             {
-                Vector2 tarDirection = Player.transform.position - owner.transform.position;
+                Vector2 tarDirection = Player.transform.position - weaponTransform.position;
                 // out of range, move to player
                 if (tarDirection.magnitude > attackRange)
                 {
-                    Vector2 velocity = Player.gameObject.transform.position - owner.gameObject.transform.position;
-                    rb.velocity = velocity * ingameMovingSpeed;
+                    Vector2 velocity = Player.gameObject.transform.position - weaponTransform.position;
+                    rb.velocity = velocity.normalized * ingameMovingSpeed;
                 }
                 // attack player
                 else
                 {
                     rb.velocity = Vector2.zero;
-                    weapon.Fire(owner.transform, tarDirection);
+                    weapon.Fire(weaponTransform, tarDirection);
                 }
             }
         }

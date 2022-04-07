@@ -27,7 +27,7 @@ namespace GamePlay.Weapons
 
         int currentAmmo;
         float cd => 1f / bulletPerSec;
-        bool canAttack;
+        bool canAttack = true;
         Coroutine reloadCR;
         public override void Initialize(params object[] args)
         {

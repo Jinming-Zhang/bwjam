@@ -23,10 +23,10 @@ namespace GamePlay
         bool isDodging;
         Vector2 dodgingVelocity;
         float dodgingTimer = 0;
-        public override void Initialize(GameObject owner, object args)
+        public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
-            if (args is PlayerInput playerInput)
+            if (args[0] is PlayerInput playerInput)
             {
                 playerInput.actions["Move"].performed += OnPlayerMovePerformed;
                 playerInput.actions["Move"].canceled += OnPlayerMoveCancelled;

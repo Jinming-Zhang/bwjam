@@ -6,18 +6,29 @@ using GamePlay;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    AIMovementBehaviour movementBehaviour;
+    Health health;
+    [SerializeField]
+    AIMovementBehaviour movementBehaviourTemplate;
+    [SerializeField]
+    Transform weaponTransform;
 
+    AIMovementBehaviour movementBehaviour;
     private void Start()
     {
-        //movementBehaviour.Initialize(gameObject);
+        movementBehaviour = ScriptableObject.Instantiate(movementBehaviourTemplate);
+        movementBehaviour.Initialize(gameObject, weaponTransform);
+        health.OnHealthReached0 = () => Die();
     }
     private void Update()
     {
-        
+
     }
     private void FixedUpdate()
     {
         movementBehaviour.UpdateMovement();
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

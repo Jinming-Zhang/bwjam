@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f733fc5e5aa8880409d06d2d4415dc77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 8400276088580658372}
+  movementBehaviour: {fileID: 0}
+  weaponTransform: {fileID: 0}
 --- !u!114 &8400276088580658372
 MonoBehaviour:
   m_ObjectHideFlags: 0

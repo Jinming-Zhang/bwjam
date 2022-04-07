@@ -6,7 +6,7 @@ namespace GamePlay
 	public abstract class MovementBehaviour : ScriptableObject
 	{
 		protected GameObject owner;
-		public virtual void Initialize(GameObject owner, object args)
+		public virtual void Initialize(GameObject owner, params object[] args)
 		{
 			this.owner = owner;
 		}

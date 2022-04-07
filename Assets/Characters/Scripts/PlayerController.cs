@@ -7,7 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace GamePlay
 {
-    public class PlayerController : MonoBehaviour, IPausableComponent
+    public class PlayerController : MonoBehaviour, IPausableComponent,IDamagable
     {
         private static PlayerController instance;
         public static PlayerController Instance => instance;
@@ -81,6 +81,11 @@ namespace GamePlay
         public void Resume()
         {
             paused = false;
+        }
+
+        public void TakeDamage(float amount, MonoBehaviour source)
+        {
+            Debug.Log("Player got hit");
         }
     }
 }
