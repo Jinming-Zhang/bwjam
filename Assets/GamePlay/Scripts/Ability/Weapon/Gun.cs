@@ -46,21 +46,17 @@ namespace GamePlay.Weapons
             {
                 if (canAttack)
                 {
-                    //float totalAngle = (splitAmount - 1) * splitAngle;
-                    //Vector2 startingDirection = Quaternion.AngleAxis(-totalAngle / 2f, Vector3.right) * direction;
+                    float totalAngle = (splitAmount - 1) * splitAngle;
+                    Vector2 startDir = Quaternion.AngleAxis(-totalAngle / 2f, Vector3.forward) * direction.normalized;
 
-                    //float theta = Mathf.Acos(Vector2.Dot(direction, Vector2.right) / (direction.magnitude));
-                    //float directionAngle = Mathf.Rad2Deg * theta;
-                    //float startAngle = directionAngle + totalAngle / 2f;
+                    for (int i = 0; i < splitAmount; i++)
+                    {
+                        startDir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startDir;
+                        Projectile p = Instantiate(projectileTemplate, pos.position, Quaternion.Euler(startDir));
 
-                    //for (int i = 0; i < splitAmount; i++)
-                    //{
-                    //    Vector2 pdir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startingDirection;
-                    Projectile p = Instantiate(projectileTemplate, pos.position, Quaternion.identity);
-
-                    p.transform.right = direction;
-                    p.Launch(direction);
-                    //}
+                        p.transform.right = startDir;
+                        p.Launch(startDir);
+                    }
 
                     currentAmmo--;
                     canAttack = false;
