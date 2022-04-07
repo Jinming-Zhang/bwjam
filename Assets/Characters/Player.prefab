@@ -350,8 +350,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6960357225742540707}
-  - component: {fileID: 1932366519}
   - component: {fileID: 1932366520}
+  - component: {fileID: 2836798469447144083}
+  - component: {fileID: 5167530317676690044}
+  - component: {fileID: 1932366519}
   - component: {fileID: 7994235013715061519}
   - component: {fileID: 7439738947318445641}
   m_Layer: 7
@@ -378,6 +380,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1932366520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766996014274202751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23832bb7ad5f6cd449702c8ba1072ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveBehaviour: {fileID: 11400000, guid: d05e4166ba2a41e4ca9c4a70dc0b57ae, type: 2}
+  attackBehaviour: {fileID: 11400000, guid: 21d874dca748714479fdb08f8bb97bb2, type: 2}
+  weaponPosition: {fileID: 4186330359492531985}
+  health: {fileID: 2836798469447144083}
+  cluemeter: {fileID: 5167530317676690044}
+--- !u!114 &2836798469447144083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766996014274202751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e8bbf5f7eeaa746afda45a7de2d19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initial: 3
+--- !u!114 &5167530317676690044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766996014274202751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a143e8f80d96afa4998bbb06bf4d1d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initial: 0
 --- !u!114 &1932366519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,19 +505,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1932366520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766996014274202751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23832bb7ad5f6cd449702c8ba1072ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveBehaviour: {fileID: 11400000, guid: d05e4166ba2a41e4ca9c4a70dc0b57ae, type: 2}
 --- !u!50 &7994235013715061519
 Rigidbody2D:
   serializedVersion: 4

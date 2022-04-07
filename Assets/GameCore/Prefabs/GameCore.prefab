@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 2240070104823535851}
   - component: {fileID: 2240070104823535848}
   - component: {fileID: 2240070104823535849}
+  - component: {fileID: 7012276972539793097}
   - component: {fileID: 1720203433}
   m_Layer: 0
   m_Name: GameCore
@@ -471,6 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUIInput: {fileID: 1720203433}
   ResourceLocator: {fileID: 2240070104823535849}
+  ingame: 0
 --- !u!114 &2240070104823535849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +488,18 @@ MonoBehaviour:
   bgmTrackManager: {fileID: 2240070103749047324}
   audioSetup: {fileID: 11400000, guid: b94b0f43abd225f47a41b465e68d5376, type: 2}
   mainCamControl: {fileID: 2240070105019173236}
+--- !u!114 &7012276972539793097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240070104823535854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe5611e9fcdf9641859320c240d0850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1720203433
 MonoBehaviour:
   m_ObjectHideFlags: 0

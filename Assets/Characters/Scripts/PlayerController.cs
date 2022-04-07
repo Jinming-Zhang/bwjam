@@ -1,3 +1,4 @@
+using GamePlay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,15 @@ namespace GamePlay
         public static PlayerController Instance => instance;
         [SerializeField]
         PlayerMovementBehaviour moveBehaviour;
+        [SerializeField]
+        PlayerAttackBehaviour attackBehaviour;
+        [SerializeField]
+        Transform weaponPosition;
+        [SerializeField]
+        Health health;
+        [SerializeField]
+        Cluemeter cluemeter;
+
         bool paused;
         private void Awake()
         {
@@ -28,21 +38,34 @@ namespace GamePlay
 
         private void Start()
         {
-            PlayerInput playerInput = GetComponent<PlayerInput>();
-            if (playerInput)
+            Initialize();
+            void Initialize()
             {
-                moveBehaviour.Initialize(gameObject, playerInput);
-            }
-            else
-            {
-                Debug.LogError("PlayerController: Could not found PlayerInput to initialize PlayerMovementBehaviour");
+                PlayerInput playerInput = GetComponent<PlayerInput>();
+                if (playerInput)
+                {
+                    playerInput.SwitchCurrentControlScheme(Keyboard.current, Mouse.current);
+                    playerInput.SwitchCurrentActionMap("Player");
+                    moveBehaviour.Initialize(gameObject, playerInput);
+                    attackBehaviour.Initialize(gameObject, weaponPosition, playerInput);
+                }
+                else
+                {
+                    Debug.LogError("PlayerController: Could not found PlayerInput to initialize PlayerMovementBehaviour");
+                }
             }
         }
+
 
         // Update is called once per frame
         void Update()
         {
+            if (!paused)
+            {
+                attackBehaviour.Update();
+            }
         }
+
         private void FixedUpdate()
         {
             if (!paused)

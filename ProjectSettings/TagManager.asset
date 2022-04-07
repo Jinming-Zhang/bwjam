@@ -14,8 +14,8 @@ TagManager:
   - UI
   - CameraBoundingBox
   - Player
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3503138253
+    locked: 0
+  - name: Characters
+    uniqueID: 2194947173
+    locked: 0
+  - name: Obstacles
+    uniqueID: 334393203
+    locked: 0
+  - name: Projectile
+    uniqueID: 2976234703
     locked: 0

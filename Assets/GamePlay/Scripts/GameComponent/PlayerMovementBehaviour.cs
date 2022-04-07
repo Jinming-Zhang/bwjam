@@ -11,18 +11,26 @@ namespace GamePlay
     {
         [SerializeField]
         float initialMoveSpeed;
+        [SerializeField]
+        float dodgingSpeedMultiplier = 1.2f;
+        [SerializeField]
+        float dodgingDistance;
+
         float ingameMoveSpeed;
         Vector2 movement;
         Rigidbody2D rb;
+
+        bool isDodging;
+        Vector2 dodgingVelocity;
+        float dodgingTimer = 0;
         public override void Initialize(GameObject owner, object args)
         {
             base.Initialize(owner, args);
             if (args is PlayerInput playerInput)
             {
-                playerInput.SwitchCurrentControlScheme(Keyboard.current, Mouse.current);
-                playerInput.SwitchCurrentActionMap("Player");
                 playerInput.actions["Move"].performed += OnPlayerMovePerformed;
                 playerInput.actions["Move"].canceled += OnPlayerMoveCancelled;
+                playerInput.actions["Dodge"].canceled += OnPlayerDodgePerformed;
             }
             rb = owner.GetComponent<Rigidbody2D>();
             ingameMoveSpeed = initialMoveSpeed;
@@ -30,10 +38,16 @@ namespace GamePlay
 
         public override void UpdateMovement()
         {
-            Vector2 delta = ingameMoveSpeed * movement * Time.deltaTime;
-            Vector3 tarPos = owner.transform.position + new Vector3(delta.x, delta.y, 0);
-            rb.velocity = ingameMoveSpeed * movement;
-            //rb.MovePosition(tarPos);
+            if (!isDodging)
+            {
+                rb.velocity = ingameMoveSpeed * movement;
+            }
+            else
+            {
+                rb.velocity = dodgingVelocity;
+                dodgingTimer -= Time.fixedDeltaTime;
+                isDodging = dodgingTimer > 0;
+            }
         }
 
 
@@ -44,6 +58,16 @@ namespace GamePlay
         public void OnPlayerMoveCancelled(CallbackContext ctx)
         {
             movement = Vector2.zero;
+        }
+
+        void OnPlayerDodgePerformed(CallbackContext ctx)
+        {
+            if (movement.magnitude > 0)
+            {
+                dodgingVelocity = movement.normalized * ingameMoveSpeed * dodgingSpeedMultiplier;
+                dodgingTimer = dodgingDistance / (dodgingVelocity.magnitude);
+                isDodging = true;
+            }
         }
     }
 }

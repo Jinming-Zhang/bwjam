@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09725ac85786084aa2fc22ee87ec848, type: 3}
   m_Name: Game Audio Setup
   m_EditorClassIdentifier: 
-  IntroClip: {fileID: 8300000, guid: 06da1c46281f9c84cb8fa7a973a2c102, type: 3}
-  Lv1Clip: {fileID: 8300000, guid: 37ab7822237b0e94dbf4aa1486ce94d7, type: 3}
+  IntroClip: {fileID: 8300000, guid: 516b0781ffebdb4429b6d1aca2d50900, type: 3}
+  Lv1Clip: {fileID: 8300000, guid: 81275aabb71e3204a9ab923121467b84, type: 3}

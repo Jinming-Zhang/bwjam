@@ -56,4 +56,8 @@ public class DebugCanvas : MonoBehaviour
 		p.GetComponent<PlayerInput>());
 
 	}
+    private void Update()
+    {
+		//Debug.Log(Mouse.current.position.ReadValue());
+    }
 }
