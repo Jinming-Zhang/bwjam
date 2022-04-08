@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GamePlay;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamagable
 {
     [SerializeField]
     Health health;
@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
     {
         movementBehaviour = ScriptableObject.Instantiate(movementBehaviourTemplate);
         movementBehaviour.Initialize(gameObject, weaponTransform);
-        health.OnHealthReached0 = () => Die();
     }
     private void Update()
     {
@@ -30,5 +29,14 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
+    {
+        health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+        if (health.Value <= 0)
+        {
+            Die();
+        }
     }
 }

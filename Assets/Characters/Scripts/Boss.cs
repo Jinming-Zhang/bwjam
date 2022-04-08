@@ -5,37 +5,21 @@ using GamePlay;
 
 public class Boss : MonoBehaviour
 {
+    [Header("Movement Templates")]
     [SerializeField]
     MovementBehaviour defaultMovementBehaviourTemplate;
     [SerializeField]
-    Transform defaultWeaponTransform;
-    AIBossAbilityHitMovementBehavour abilityHitBehaviour;
+    AIBossAbilityHitMovementBehavour defaultAbilityHitMovementBehaviour;
+    [SerializeField]
+    public Transform defaultWeaponTransform;
+    public Transform meleeWeaponTransform;
     MovementBehaviour currentMovementBehaviour;
-    //[SerializeField]
-    //AttackBehaviour attackBehaviour;
 
-    PlayerController player;
-    PlayerController Player
-    {
-        get
-        {
-            if (!player)
-            {
-                GameObject go = GameObject.FindWithTag("Player");
-                if (go)
-                {
-                    player = go.GetComponent<PlayerController>();
-                }
-            }
-            return player;
-        }
-    }
-
+    Coroutine switchBehaviourCR;
     // Start is called before the first frame update
     void Start()
     {
-        currentMovementBehaviour = Instantiate(defaultMovementBehaviourTemplate);
-        currentMovementBehaviour.Initialize(gameObject, defaultWeaponTransform);
+        SwitchToDefaultMoveBehaviour();
     }
 
     // Update is called once per frame
@@ -50,9 +34,31 @@ public class Boss : MonoBehaviour
             currentMovementBehaviour.UpdateMovement();
         }
     }
-    public void DefaultProjectileHitPlayer()
+    public void DefaultProjectileHitPlayer(float charmingDuration)
     {
-        currentMovementBehaviour = null;
+        AIBossAbilityHitMovementBehavour b = Instantiate(defaultAbilityHitMovementBehaviour);
+        b.Initialize(gameObject, charmingDuration);
+        currentMovementBehaviour = b;
+    }
+    public void DoMeleeAttackAnimation()
+    {
 
+    }
+
+    public void SwitchToDefaultMoveBehaviour()
+    {
+        if (switchBehaviourCR == null)
+        {
+            switchBehaviourCR = StartCoroutine(DelayCR(2f));
+        }
+        IEnumerator DelayCR(float timer)
+        {
+            currentMovementBehaviour = null;
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            yield return new WaitForSeconds(timer);
+            currentMovementBehaviour = Instantiate(defaultMovementBehaviourTemplate);
+            currentMovementBehaviour.Initialize(gameObject, defaultWeaponTransform);
+            switchBehaviourCR = null;
+        }
     }
 }

@@ -2,23 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour, IDamagable
+public class Health : MonoBehaviour
 {
     [SerializeField]
     int initial = 3;
     int current;
-    public int Value => current;
+    public int Value { get => current; set => current = value; }
 
-    public System.Action OnHealthReached0 = null;
     // Start is called before the first frame update
     void Start()
     {
         current = initial;
-    }
-
-    public void TakeDamage(float amount, MonoBehaviour source)
-    {
-        current = Mathf.Max(0, current - Mathf.FloorToInt(amount));
-        OnHealthReached0?.Invoke();
     }
 }

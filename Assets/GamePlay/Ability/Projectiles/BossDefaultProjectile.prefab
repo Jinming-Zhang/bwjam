@@ -145,3 +145,4 @@ MonoBehaviour:
   critHitProbability: 0.1
   critHitDmgMultiplier: 1
   charmDuration: 2
+  charmedSpeed: 1

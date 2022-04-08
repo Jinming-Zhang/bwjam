@@ -4,5 +4,11 @@ using UnityEngine;
 
 public interface IDamagable
 {
-	void TakeDamage(float amount, MonoBehaviour source);
+    public enum DamageType
+    {
+        Health,
+        Clue,
+        AllYouCanThinkOf
+    }
+    void TakeDamage(float amount, MonoBehaviour source, DamageType damageType = DamageType.Health);
 }

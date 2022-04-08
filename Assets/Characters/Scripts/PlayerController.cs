@@ -21,10 +21,12 @@ namespace GamePlay
         Health health;
         [SerializeField]
         Cluemeter cluemeter;
-
+        [SerializeField]
+        Rigidbody2D rb;
         public Weapon CurrentWeapon => attackBehaviour.CurrentWeapon;
 
         bool paused;
+        bool controllable;
         private void Awake()
         {
             if (instance && instance != this)
@@ -43,6 +45,7 @@ namespace GamePlay
             Initialize();
             void Initialize()
             {
+                controllable = true;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -62,7 +65,7 @@ namespace GamePlay
         // Update is called once per frame
         void Update()
         {
-            if (!paused)
+            if (!paused && controllable)
             {
                 attackBehaviour.Update();
             }
@@ -70,7 +73,7 @@ namespace GamePlay
 
         private void FixedUpdate()
         {
-            if (!paused)
+            if (!paused && controllable)
             {
                 moveBehaviour.UpdateMovement();
             }
@@ -85,7 +88,7 @@ namespace GamePlay
             paused = false;
         }
 
-        public void TakeDamage(float amount, MonoBehaviour source)
+        public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
         {
             if (source is BossDefaultWeaponProjectile bossDefaultProjectile)
             {
@@ -94,6 +97,67 @@ namespace GamePlay
             else
             {
                 Debug.Log("Player got hit");
+                if (damageType == IDamagable.DamageType.Health)
+                {
+                    health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+                    OnHealthChanged(health.Value);
+                }
+                else if (damageType == IDamagable.DamageType.Clue)
+                {
+                    cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                    OnClueChanged(cluemeter.Value);
+                }
+            }
+
+            void OnHealthChanged(int newHealth)
+            {
+
+            }
+            void OnClueChanged(int newClue)
+            {
+
+            }
+        }
+
+        public void Charmed(GameObject src, float duration, float speed)
+        {
+            controllable = false;
+            StopAllCoroutines();
+
+            Vector2 direction = src.transform.position - gameObject.transform.position;
+            rb.velocity = direction.normalized * speed;
+            StartCoroutine(CharedCR());
+
+            IEnumerator CharedCR()
+            {
+                float timer = duration;
+                while (timer > 0)
+                {
+                    timer -= Time.fixedDeltaTime;
+                    yield return new WaitForFixedUpdate();
+                }
+                controllable = true;
+                rb.velocity = Vector2.zero;
+            }
+        }
+        public void ForcePush(Vector2 distination, float speed)
+        {
+            controllable = false;
+            StopAllCoroutines();
+            StartCoroutine(ForcePushedCR());
+
+            IEnumerator ForcePushedCR()
+            {
+                yield return new WaitForFixedUpdate();
+                Vector2 directionalDistance = distination - new Vector2(transform.position.x, transform.position.y);
+                float time = directionalDistance.magnitude / speed;
+                rb.velocity = directionalDistance.normalized * speed;
+
+                Debug.Log($"Player Pushed, Dst: {distination}");
+                yield return new WaitForSeconds(time);
+                rb.velocity = Vector2.zero;
+                controllable = true;
+                Debug.Log($"Player Pushed finished, EndPos: {transform.position}");
             }
         }
 

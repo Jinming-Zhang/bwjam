@@ -397,6 +397,7 @@ MonoBehaviour:
   weaponPosition: {fileID: 4186330359492531985}
   health: {fileID: 2836798469447144083}
   cluemeter: {fileID: 5167530317676690044}
+  rb: {fileID: 7994235013715061519}
 --- !u!114 &2836798469447144083
 MonoBehaviour:
   m_ObjectHideFlags: 0

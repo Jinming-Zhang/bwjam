@@ -9,6 +9,8 @@ public class BossDefaultWeaponProjectile : Projectile
 {
     [SerializeField]
     public float charmDuration;
+    [SerializeField]
+    public float charmedSpeed;
     Boss boss;
     public override void Initiailze(GameObject src, params object[] args)
     {
@@ -20,8 +22,9 @@ public class BossDefaultWeaponProjectile : Projectile
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player)
         {
-            boss.DefaultProjectileHitPlayer();
+            boss.DefaultProjectileHitPlayer(charmDuration);
             player.TakeDamage(FinalDaage, this);
+            player.Charmed(boss.gameObject, charmDuration, charmedSpeed);
             Destroy(gameObject);
         }
     }

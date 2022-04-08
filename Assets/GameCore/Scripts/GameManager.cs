@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using WolfUISystem;
 using WolfUISystem.Presets;
 using UnityEngine.SceneManagement;
+using GamePlay;
 
 namespace GameCore
 {
@@ -27,6 +28,22 @@ namespace GameCore
                     return lm.GetComponent<LevelManager>();
                 }
                 return null;
+            }
+        }
+        PlayerController player;
+        public PlayerController Player
+        {
+            get
+            {
+                if (!player)
+                {
+                    GameObject go = GameObject.FindGameObjectWithTag("Player");
+                    if (go)
+                    {
+                        player = go.GetComponent<PlayerController>();
+                    }
+                }
+                return player;
             }
         }
         [SerializeField]
