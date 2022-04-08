@@ -9,8 +9,20 @@ namespace GamePlay
 {
     public class PlayerController : MonoBehaviour, IPausableComponent, IDamagable
     {
+        public enum FaceDirection
+        {
+            Left,
+            Right,
+            None
+        }
+
         private static PlayerController instance;
         public static PlayerController Instance => instance;
+        [SerializeField]
+        GameObject graphics;
+        [SerializeField]
+        Animator animator;
+        public Animator Animator { get => animator; }
         [SerializeField]
         PlayerMovementBehaviour moveBehaviour;
         [SerializeField]
@@ -72,7 +84,14 @@ namespace GamePlay
             {
                 attackBehaviour.Update();
             }
-            Debug.Log(attackable);
+            if (attackBehaviour.faceDirectionPreference != FaceDirection.None)
+            {
+                FaceToward(attackBehaviour.faceDirectionPreference);
+            }
+            else
+            {
+                FaceToward(moveBehaviour.faceDirectionPreference);
+            }
         }
 
         private void FixedUpdate()
@@ -81,6 +100,11 @@ namespace GamePlay
             {
                 moveBehaviour.UpdateMovement();
             }
+        }
+
+        void FaceToward(FaceDirection direction)
+        {
+            graphics.transform.rotation = Quaternion.Euler(0, direction == FaceDirection.Left ? 180 : 0, 0);
         }
         public void Pause()
         {
