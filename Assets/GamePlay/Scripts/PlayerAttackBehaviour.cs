@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttackBehaviour : AttackBehaviour
 {
     bool isAttacking = false;
+    public bool Attackable { get; set; }
     public override void Initialize(GameObject owner, Transform weaponPos, params object[] args)
     {
         base.Initialize(owner, weaponPos, args);
@@ -16,10 +17,11 @@ public class PlayerAttackBehaviour : AttackBehaviour
             playerInput.actions["Fire"].performed += OnAttackPressed;
             playerInput.actions["Fire"].canceled += OnAttackReleased;
         }
+        Attackable = true;
     }
     public override void Update()
     {
-        if (isAttacking)
+        if (isAttacking && Attackable)
         {
             base.Update();
             Vector3 mousePosToWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

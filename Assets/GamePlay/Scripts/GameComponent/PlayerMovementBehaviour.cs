@@ -17,6 +17,7 @@ namespace GamePlay
         float dodgingDistance;
 
         float ingameMoveSpeed;
+        public float speedMultiplier = 1f;
         Vector2 movement;
         Rigidbody2D rb;
 
@@ -40,7 +41,7 @@ namespace GamePlay
         {
             if (!isDodging)
             {
-                rb.velocity = ingameMoveSpeed * movement;
+                rb.velocity = ingameMoveSpeed * movement * speedMultiplier;
             }
             else
             {
@@ -64,7 +65,7 @@ namespace GamePlay
         {
             if (movement.magnitude > 0)
             {
-                dodgingVelocity = movement.normalized * ingameMoveSpeed * dodgingSpeedMultiplier;
+                dodgingVelocity = movement.normalized * ingameMoveSpeed * speedMultiplier * dodgingSpeedMultiplier;
                 dodgingTimer = dodgingDistance / (dodgingVelocity.magnitude);
                 isDodging = true;
             }

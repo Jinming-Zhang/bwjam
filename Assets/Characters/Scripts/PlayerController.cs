@@ -27,6 +27,9 @@ namespace GamePlay
 
         bool paused;
         bool controllable;
+        public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
+        public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
+
         private void Awake()
         {
             if (instance && instance != this)
@@ -69,6 +72,7 @@ namespace GamePlay
             {
                 attackBehaviour.Update();
             }
+            Debug.Log(attackable);
         }
 
         private void FixedUpdate()
@@ -96,7 +100,6 @@ namespace GamePlay
             }
             else
             {
-                Debug.Log("Player got hit");
                 if (damageType == IDamagable.DamageType.Health)
                 {
                     health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
@@ -160,6 +163,9 @@ namespace GamePlay
                 Debug.Log($"Player Pushed finished, EndPos: {transform.position}");
             }
         }
-
+        public void ApplySpeedMultiplier(float multiplier)
+        {
+            moveBehaviour.speedMultiplier = multiplier;
+        }
     }
 }

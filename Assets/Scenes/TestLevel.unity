@@ -3667,10 +3667,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2240070103749047313, guid: ea35bccd229bf5749a9758152eef049b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2240070104823535851, guid: ea35bccd229bf5749a9758152eef049b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3718,10 +3714,6 @@ PrefabInstance:
     - target: {fileID: 2240070104823535854, guid: ea35bccd229bf5749a9758152eef049b, type: 3}
       propertyPath: m_Name
       value: GameCore
-      objectReference: {fileID: 0}
-    - target: {fileID: 2240070104823535854, guid: ea35bccd229bf5749a9758152eef049b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2240070105019173130, guid: ea35bccd229bf5749a9758152eef049b, type: 3}
       propertyPath: orthographic size

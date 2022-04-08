@@ -52,6 +52,11 @@ MonoBehaviour:
   defaultAbilityHitMovementBehaviour: {fileID: 11400000, guid: f364ec7ba4d632245badb2db07d95e0f, type: 2}
   defaultWeaponTransform: {fileID: 744271863897575782}
   meleeWeaponTransform: {fileID: 8781675069398722749}
+  rb: {fileID: 8820447711537589356}
+  health: {fileID: 4978402263130667124}
+  fleeSpeed: 10
+  fleetCD: 10
+  perfume: {fileID: 6164130207379765748, guid: a9e7de54648cc2f4886292250293a704, type: 3}
 --- !u!114 &4978402263130667124
 MonoBehaviour:
   m_ObjectHideFlags: 0
