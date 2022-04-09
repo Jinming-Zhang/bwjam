@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Attack/Player Attack Behaviour", fileName = "Player Attack Behaviour")]
 public class PlayerAttackBehaviour : AttackBehaviour
 {
+    [HideInInspector]
     public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
     bool isAttacking = false;
     public bool Attackable { get; set; }
