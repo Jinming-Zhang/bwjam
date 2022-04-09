@@ -12,8 +12,13 @@ public class Fart : MonoBehaviour
     [SerializeField]
     float lifetime = 5f;
     ApplySpeedMultipierCommand cmd;
+    [SerializeField]
+    float moveSpeed = 3f;
+    Vector3 targetPosition;
     private IEnumerator Start()
     {
+        targetPosition = GameCore.GameManager.Instance.Player.transform.position;
+
         cmd = null;
         yield return new WaitForSeconds(lifetime);
         if (cmd != null)
@@ -22,6 +27,10 @@ public class Fart : MonoBehaviour
             AppliedToPlayer = false;
         }
         Destroy(gameObject);
+    }
+    private void Update()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
