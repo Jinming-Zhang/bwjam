@@ -196,11 +196,9 @@ namespace GamePlay
                 float time = directionalDistance.magnitude / speed;
                 rb.velocity = directionalDistance.normalized * speed;
 
-                Debug.Log($"Player Pushed, Dst: {distination}");
                 yield return new WaitForSeconds(time);
                 rb.velocity = Vector2.zero;
                 controllable = true;
-                Debug.Log($"Player Pushed finished, EndPos: {transform.position}");
             }
         }
         public void ApplySpeedMultiplier(float multiplier)

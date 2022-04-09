@@ -45,7 +45,7 @@ public static class GameSequence
         TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
         t.FadeIn(() =>
         {
-            SceneManager.LoadScene("TestLevel");
+            SceneManager.LoadScene("LevelSelection");
             AudioSystem.Instance.TransitionBGMQuick(audioSetup.Lv1Clip);
             t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<HudScreen>());
         });
