@@ -11,5 +11,9 @@ public static class AnimationConstants
     public static string Player_Walk_front = "Walk_front";
     public static string Player_Walk_back = "Walk_back";
     public static string Player_Walk_side = "Walk_side";
+
+    // door
+    public static string Door_Open = "doorOpen";
+    public static string Door_Close = "doorClose";
 }
 
