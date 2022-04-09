@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LevelManager
   - RoomCorner
+  - PlayerSpawnPosition
   layers:
   - Default
   - TransparentFX

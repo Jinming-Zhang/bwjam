@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 6479826092939467752}
   - component: {fileID: 8783719960017766043}
   - component: {fileID: 123180743}
+  - component: {fileID: 2928773516141405044}
   m_Layer: 7
   m_Name: player-idle-1
   m_TagString: Untagged
@@ -250,6 +251,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2928773516141405044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942501843360853441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f4d57ab87c1dc489ad32428951ead9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1932366520}
 --- !u!1 &4108297598296774608
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +433,8 @@ MonoBehaviour:
   health: {fileID: 2836798469447144083}
   cluemeter: {fileID: 5167530317676690044}
   rb: {fileID: 7994235013715061519}
+  feetstepl: {fileID: 8300000, guid: 953a1c95d4762844c86566b071472af7, type: 3}
+  feetstepr: {fileID: 8300000, guid: 7e155e36684fe5344bbc3e93129bc1a1, type: 3}
 --- !u!114 &2836798469447144083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e8bbf5f7eeaa746afda45a7de2d19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initial: 3
+  initial: 30
 --- !u!114 &5167530317676690044
 MonoBehaviour:
   m_ObjectHideFlags: 0

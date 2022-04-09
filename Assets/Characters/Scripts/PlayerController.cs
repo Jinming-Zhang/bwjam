@@ -37,6 +37,10 @@ namespace GamePlay
         Cluemeter cluemeter;
         [SerializeField]
         Rigidbody2D rb;
+        [SerializeField]
+        AudioClip feetstepl;
+        [SerializeField]
+        AudioClip feetstepr;
         HudScreen hud;
         public Weapon CurrentWeapon => attackBehaviour.CurrentWeapon;
 
@@ -44,7 +48,7 @@ namespace GamePlay
         bool controllable;
         public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
         public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
-
+        bool dead;
         private void Awake()
         {
             if (instance && instance != this)
@@ -65,6 +69,7 @@ namespace GamePlay
             void InitializePlayer()
             {
                 controllable = true;
+                dead = false;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -143,6 +148,12 @@ namespace GamePlay
 
             void OnHealthChanged(int newHealth)
             {
+                if (newHealth == 0)
+                {
+                    dead = true;
+                    GameStatus.OnPlayerDead();
+                    WolfAudioSystem.AudioSystem.Instance.TransitionBGMQuick(GameCore.GameManager.Instance.ResourceLocator.audioSetup.Lv1Clip);
+                }
                 hud.UpdatePlayerHealth(newHealth);
             }
             void OnClueChanged(int newClue)
@@ -195,6 +206,14 @@ namespace GamePlay
         public void ApplySpeedMultiplier(float multiplier)
         {
             moveBehaviour.speedMultiplier = multiplier;
+        }
+        public void WalkLeft()
+        {
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(feetstepl);
+        }
+        public void WalkRight()
+        {
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(feetstepr);
         }
     }
 }

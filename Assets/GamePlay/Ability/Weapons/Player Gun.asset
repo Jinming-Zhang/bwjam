@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   criticalHitProbabilityMultiplier: 1
   criticalHitDmgMultiplier: 1
-  fireSFX: {fileID: 0}
-  weaponAudioSource: {fileID: 0}
+  fireSFX: {fileID: 8300000, guid: 5ba6fa74eee0afa408181368c2829e8f, type: 3}
+  owner: {fileID: 0}
   bulletPerSec: 10
+  needReload: 1
+  reloadClip: {fileID: 8300000, guid: 7f0940f7eaabc5841a1f4756d0c4d21c, type: 3}
   clipSize: 50
   reloadTime: 1
   projectileTemplate: {fileID: -5036434780792031313, guid: 2ce6ef003c3ac9146a3402d93ad4d78b, type: 3}
-  splitAmount: 3
+  splitAmount: 2
   splitAngle: 10
-  countSplittedAmmo: 0

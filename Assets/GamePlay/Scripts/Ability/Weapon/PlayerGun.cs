@@ -29,9 +29,12 @@ namespace GamePlay.Weapons
 
         public override void Reload()
         {
+            if (reloadCR == null)
+            {
+                GameCore.GameManager.Instance.StartCoroutine(UpdateHudCR());
+                Hud.UpdateReload(0, reloadTime);
+            }
             base.Reload();
-            GameCore.GameManager.Instance.StartCoroutine(UpdateHudCR());
-            Hud.UpdateReload(0, reloadTime);
             IEnumerator UpdateHudCR()
             {
                 float timer = 0;

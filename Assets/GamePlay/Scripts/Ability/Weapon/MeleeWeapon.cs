@@ -14,11 +14,12 @@ namespace GamePlay.Weapons
 
         float cd => 1f / attackPerSec;
         bool canAttack = true;
-
+        Enemy me;
         public override void Initialize(GameObject src, params object[] args)
         {
             base.Initialize(src, args);
             canAttack = true;
+            me = owner.GetComponent<Enemy>();
         }
 
         public override void Fire(Transform pos, Vector2 direction)
