@@ -55,7 +55,6 @@ namespace GamePlay
         }
 
         protected Transform weaponTransform;
-        Enemy me;
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
@@ -66,7 +65,6 @@ namespace GamePlay
             }
             weapon = Instantiate(weaponTemplate);
             weapon.Initialize(owner);
-            me = owner.GetComponent<Enemy>();
         }
 
         public override void UpdateMovement()
@@ -79,7 +77,6 @@ namespace GamePlay
             if (Player)
             {
                 Vector2 tarDirection = Player.transform.position - weaponTransform.position;
-                me.Graphics.transform.rotation = tarDirection.x < 0 ? Quaternion.Euler(new Vector3(0, 180, 0)) : Quaternion.Euler(Vector3.zero);
                 // out of range, move to player
                 if (tarDirection.magnitude > attackRange)
                 {
