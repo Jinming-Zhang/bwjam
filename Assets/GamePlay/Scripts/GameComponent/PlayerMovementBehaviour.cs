@@ -17,15 +17,16 @@ namespace GamePlay
         float dodgingDistance;
 
         float ingameMoveSpeed;
+        [HideInInspector]
         public float speedMultiplier = 1f;
         Vector2 movement;
-        Vector2 previousMovement;
         Rigidbody2D rb;
 
         bool isDodging;
         Vector2 dodgingVelocity;
         float dodgingTimer = 0;
         PlayerController player;
+        [HideInInspector]
         public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
 
         public override void Initialize(GameObject owner, params object[] args)
@@ -63,12 +64,10 @@ namespace GamePlay
 
         public void OnPlayerMovePerformed(CallbackContext ctx)
         {
-            previousMovement = movement;
             movement = ctx.ReadValue<Vector2>();
         }
         public void OnPlayerMoveCancelled(CallbackContext ctx)
         {
-            previousMovement = movement;
             movement = Vector2.zero;
             UpdateStableAnimation();
         }

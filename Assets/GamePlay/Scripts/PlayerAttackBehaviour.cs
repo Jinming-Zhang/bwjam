@@ -11,7 +11,7 @@ public class PlayerAttackBehaviour : AttackBehaviour
     public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
     bool isAttacking = false;
     public bool Attackable { get; set; }
-    PlayerController player;
+    public Gun myGun => CurrentWeapon as Gun;
     public override void Initialize(GameObject owner, Transform weaponPos, params object[] args)
     {
         base.Initialize(owner, weaponPos, args);
@@ -20,7 +20,6 @@ public class PlayerAttackBehaviour : AttackBehaviour
             playerInput.actions["Fire"].performed += OnAttackPressed;
             playerInput.actions["Fire"].canceled += OnAttackReleased;
         }
-        player = owner.GetComponent<PlayerController>();
         Attackable = true;
     }
     public override void Update()

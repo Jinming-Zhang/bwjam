@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using WolfUISystem;
+using WolfUISystem.Presets;
 using static UnityEngine.InputSystem.InputAction;
 
 namespace GamePlay
@@ -35,6 +37,7 @@ namespace GamePlay
         Cluemeter cluemeter;
         [SerializeField]
         Rigidbody2D rb;
+        HudScreen hud;
         public Weapon CurrentWeapon => attackBehaviour.CurrentWeapon;
 
         bool paused;
@@ -57,8 +60,9 @@ namespace GamePlay
 
         private void Start()
         {
-            Initialize();
-            void Initialize()
+            InitializePlayer();
+            InitializeUI();
+            void InitializePlayer()
             {
                 controllable = true;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
@@ -73,6 +77,14 @@ namespace GamePlay
                 {
                     Debug.LogError("PlayerController: Could not found PlayerInput to initialize PlayerMovementBehaviour");
                 }
+            }
+            void InitializeUI()
+            {
+                hud = UIManager.Instance.GetScreenComponent<HudScreen>();
+                hud.UpdatePlayerHealth(health.Value);
+                hud.UpdateClumeter(cluemeter.Value, cluemeter.MaxValue);
+                hud.UpdateAmmo(attackBehaviour.myGun.CurrentAmmo, attackBehaviour.myGun.ClipSize);
+                hud.ReloadDone();
             }
         }
 
@@ -118,31 +130,24 @@ namespace GamePlay
 
         public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
         {
-            if (source is BossDefaultWeaponProjectile bossDefaultProjectile)
+            if (damageType == IDamagable.DamageType.Health)
             {
-                Debug.Log("Player seduced by boss o 0");
+                health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+                OnHealthChanged(health.Value);
             }
-            else
+            else if (damageType == IDamagable.DamageType.Clue)
             {
-                if (damageType == IDamagable.DamageType.Health)
-                {
-                    health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
-                    OnHealthChanged(health.Value);
-                }
-                else if (damageType == IDamagable.DamageType.Clue)
-                {
-                    cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
-                    OnClueChanged(cluemeter.Value);
-                }
+                cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                OnClueChanged(cluemeter.Value);
             }
 
             void OnHealthChanged(int newHealth)
             {
-
+                hud.UpdatePlayerHealth(newHealth);
             }
             void OnClueChanged(int newClue)
             {
-
+                hud.UpdateClumeter(newClue, cluemeter.MaxValue);
             }
         }
 

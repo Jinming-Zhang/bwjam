@@ -14,6 +14,7 @@ namespace GamePlay.Weapons
         bool needReload = true;
         [SerializeField]
         protected int clipSize;
+        public int ClipSize => clipSize;
         [SerializeField]
         protected float reloadTime;
         [SerializeField]
@@ -26,7 +27,8 @@ namespace GamePlay.Weapons
         float splitAngle = 10f;
 
         int currentAmmo;
-        float cd => 1f / bulletPerSec;
+        public int CurrentAmmo => currentAmmo;
+        public float cd => 1f / bulletPerSec;
         bool canAttack = true;
         Coroutine reloadCR;
         public override void Initialize(GameObject owner, params object[] args)
@@ -73,7 +75,7 @@ namespace GamePlay.Weapons
             }
         }
 
-        public void Reload()
+        public virtual void Reload()
         {
             if (reloadCR == null)
             {
