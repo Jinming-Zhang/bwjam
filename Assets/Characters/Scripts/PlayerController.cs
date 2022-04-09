@@ -48,7 +48,6 @@ namespace GamePlay
         bool controllable;
         public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
         public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
-        bool dead;
         private void Awake()
         {
             if (instance && instance != this)
@@ -69,7 +68,6 @@ namespace GamePlay
             void InitializePlayer()
             {
                 controllable = true;
-                dead = false;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -150,7 +148,6 @@ namespace GamePlay
             {
                 if (newHealth == 0)
                 {
-                    dead = true;
                     GameStatus.OnPlayerDead();
                     WolfAudioSystem.AudioSystem.Instance.TransitionBGMQuick(GameCore.GameManager.Instance.ResourceLocator.audioSetup.Lv1Clip);
                 }
