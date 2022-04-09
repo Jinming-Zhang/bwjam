@@ -8,5 +8,10 @@ namespace WolfAudioSystem
 	{
 		public AudioClip IntroClip;
 		public AudioClip Lv1Clip;
+		public AudioClip EnemyKill1;
+		public AudioClip EnemyKill2;
+		public AudioClip EnemyKill3;
+		public AudioClip EnemyKill4;
+		public AudioClip BossFight;
 	}
 }

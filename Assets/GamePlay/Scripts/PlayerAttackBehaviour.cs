@@ -1,3 +1,4 @@
+using GamePlay;
 using GamePlay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,8 +8,10 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Attack/Player Attack Behaviour", fileName = "Player Attack Behaviour")]
 public class PlayerAttackBehaviour : AttackBehaviour
 {
+    public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
     bool isAttacking = false;
     public bool Attackable { get; set; }
+    public Gun myGun => CurrentWeapon as Gun;
     public override void Initialize(GameObject owner, Transform weaponPos, params object[] args)
     {
         base.Initialize(owner, weaponPos, args);
@@ -26,6 +29,7 @@ public class PlayerAttackBehaviour : AttackBehaviour
             base.Update();
             Vector3 mousePosToWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector2 direction = new Vector2(mousePosToWorld.x - weaponPos.position.x, mousePosToWorld.y - weaponPos.position.y);
+            faceDirectionPreference = direction.x < 0 ? PlayerController.FaceDirection.Left : PlayerController.FaceDirection.Right;
             weapon.Fire(weaponPos, direction);
         }
     }
@@ -37,5 +41,6 @@ public class PlayerAttackBehaviour : AttackBehaviour
     public void OnAttackReleased(InputAction.CallbackContext ctx)
     {
         isAttacking = false;
+        faceDirectionPreference = PlayerController.FaceDirection.None;
     }
 }

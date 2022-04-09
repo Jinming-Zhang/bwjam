@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09725ac85786084aa2fc22ee87ec848, type: 3}
   m_Name: Game Audio Setup
   m_EditorClassIdentifier: 
-  IntroClip: {fileID: 8300000, guid: 516b0781ffebdb4429b6d1aca2d50900, type: 3}
-  Lv1Clip: {fileID: 8300000, guid: 81275aabb71e3204a9ab923121467b84, type: 3}
+  IntroClip: {fileID: 8300000, guid: 60ca1a8917c3a0f4ba8e999a3eb6bf39, type: 3}
+  Lv1Clip: {fileID: 8300000, guid: 93e55ec647e18c84f98fc6cb15d2c033, type: 3}
+  EnemyKill1: {fileID: 8300000, guid: bb81cb958d0bcbc41a4bda921a853c07, type: 3}
+  EnemyKill2: {fileID: 8300000, guid: 79b0ac0d8bb4133479beb4706df430ab, type: 3}
+  EnemyKill3: {fileID: 8300000, guid: 03814f8453dd7c14ca61d7623fc5df86, type: 3}
+  EnemyKill4: {fileID: 8300000, guid: 6f08eb7b2ab656948841e87141c827e0, type: 3}
+  EnemyKill5: {fileID: 0}
+  EnemyKill6: {fileID: 0}
+  BossFight: {fileID: 8300000, guid: 87aab970a6e60b645a99d962c6a71d9e, type: 3}

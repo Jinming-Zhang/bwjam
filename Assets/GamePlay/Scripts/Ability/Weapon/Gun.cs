@@ -13,7 +13,10 @@ namespace GamePlay.Weapons
         [SerializeField]
         bool needReload = true;
         [SerializeField]
+        AudioClip reloadClip;
+        [SerializeField]
         protected int clipSize;
+        public int ClipSize => clipSize;
         [SerializeField]
         protected float reloadTime;
         [SerializeField]
@@ -26,14 +29,19 @@ namespace GamePlay.Weapons
         float splitAngle = 10f;
 
         int currentAmmo;
-        float cd => 1f / bulletPerSec;
+        public int CurrentAmmo => currentAmmo;
+        public float cd => 1f / bulletPerSec;
         bool canAttack = true;
-        Coroutine reloadCR;
+        protected Coroutine reloadCR;
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
             currentAmmo = clipSize;
             canAttack = true;
+            if (!needReload)
+            {
+                currentAmmo = int.MaxValue;
+            }
         }
 
         public override void Fire(Transform pos, Vector2 direction)
@@ -55,7 +63,7 @@ namespace GamePlay.Weapons
                 {
                     float totalAngle = (splitAmount - 1) * splitAngle;
                     Vector2 startDir = Quaternion.AngleAxis(-totalAngle / 2f, Vector3.forward) * direction.normalized;
-
+                    base.Fire(pos, direction);
                     for (int i = 0; i < splitAmount; i++)
                     {
                         startDir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startDir;
@@ -73,11 +81,15 @@ namespace GamePlay.Weapons
             }
         }
 
-        public void Reload()
+        public virtual void Reload()
         {
             if (reloadCR == null)
             {
-                GameCore.GameManager.Instance.StartCoroutine(ReloadCR());
+                if (reloadClip)
+                {
+                    WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(reloadClip);
+                }
+                reloadCR = GameCore.GameManager.Instance.StartCoroutine(ReloadCR());
             }
             IEnumerator ReloadCR()
             {

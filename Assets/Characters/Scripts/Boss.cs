@@ -29,12 +29,15 @@ public class Boss : MonoBehaviour, IDamagable
     GameObject perfume;
     MovementBehaviour currentMovementBehaviour;
 
+    [SerializeField]
+    UnityEngine.UI.Image healthbar;
     Coroutine switchBehaviourCR;
     Coroutine fleetCR;
     // Start is called before the first frame update
     void Start()
     {
         SwitchToDefaultMoveBehaviour();
+        healthbar.fillAmount = 1f;
     }
     private void Update()
     {
@@ -87,6 +90,7 @@ public class Boss : MonoBehaviour, IDamagable
         if (source.GetComponent<PlayerWeaponProjectile>())
         {
             health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+            healthbar.fillAmount = health.Value / (float)health.MaxValue;
             if (health.Value <= 0)
             {
                 Die();

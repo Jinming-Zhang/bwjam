@@ -17,6 +17,7 @@ namespace GamePlay
         float dodgingDistance;
 
         float ingameMoveSpeed;
+        [HideInInspector]
         public float speedMultiplier = 1f;
         Vector2 movement;
         Rigidbody2D rb;
@@ -24,6 +25,10 @@ namespace GamePlay
         bool isDodging;
         Vector2 dodgingVelocity;
         float dodgingTimer = 0;
+        PlayerController player;
+        [HideInInspector]
+        public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
+
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
@@ -33,6 +38,7 @@ namespace GamePlay
                 playerInput.actions["Move"].canceled += OnPlayerMoveCancelled;
                 playerInput.actions["Dodge"].canceled += OnPlayerDodgePerformed;
             }
+            player = owner.GetComponent<PlayerController>();
             rb = owner.GetComponent<Rigidbody2D>();
             ingameMoveSpeed = initialMoveSpeed;
         }
@@ -42,6 +48,10 @@ namespace GamePlay
             if (!isDodging)
             {
                 rb.velocity = ingameMoveSpeed * movement * speedMultiplier;
+                if (movement.magnitude > 0)
+                {
+                    UpdateMovingAnimation();
+                }
             }
             else
             {
@@ -59,8 +69,48 @@ namespace GamePlay
         public void OnPlayerMoveCancelled(CallbackContext ctx)
         {
             movement = Vector2.zero;
+            UpdateStableAnimation();
         }
 
+
+        void UpdateMovingAnimation()
+        {
+            if (movement.x != 0)
+            {
+                player.Animator.Play(AnimationConstants.Player_Walk_side);
+                faceDirectionPreference = movement.x < 0 ? PlayerController.FaceDirection.Left : PlayerController.FaceDirection.Right;
+            }
+            else if (movement.y != 0)
+            {
+                if (movement.y > 0)
+                {
+                    player.Animator.Play(AnimationConstants.Player_Walk_back);
+                }
+                else
+                {
+                    player.Animator.Play(AnimationConstants.Player_Walk_front);
+                }
+            }
+        }
+        void UpdateStableAnimation()
+        {
+            if (player.Animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationConstants.Player_Walk_back))
+            {
+                player.Animator.Play(AnimationConstants.Player_Idle_Back);
+            }
+            else if (player.Animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationConstants.Player_Walk_front))
+            {
+                player.Animator.Play(AnimationConstants.Player_Idle_front);
+            }
+            else if (player.Animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationConstants.Player_Walk_side))
+            {
+                player.Animator.Play(AnimationConstants.Player_Idle_side);
+            }
+            else
+            {
+                player.Animator.Play(AnimationConstants.Player_Idle_front);
+            }
+        }
         void OnPlayerDodgePerformed(CallbackContext ctx)
         {
             if (movement.magnitude > 0)

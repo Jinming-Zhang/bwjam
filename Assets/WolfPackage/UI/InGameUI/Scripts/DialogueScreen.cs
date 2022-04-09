@@ -154,6 +154,7 @@ namespace WolfUISystem.Presets
 				{
 					if (!component.KeepPreviousElements)
 					{
+						iconSprite.gameObject.SetActive(false);
 						Color w = Color.white;
 						w.a = 0;
 						iconSprite.color = w;

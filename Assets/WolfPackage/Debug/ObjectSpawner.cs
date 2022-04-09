@@ -16,6 +16,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         shouldSpawn = true;
         spawnTimer = spawnInterval;
+        Spawn();
     }
     private void Update()
     {
@@ -23,16 +24,20 @@ public class ObjectSpawner : MonoBehaviour
         {
             if (spawnTimer <= 0)
             {
-                foreach (GameObject go in objectsToSpawn)
-                {
-                    Instantiate(go, transform.position, Quaternion.identity);
-                    spawnTimer = spawnInterval;
-                }
+                Spawn();
             }
             else
             {
                 spawnTimer -= Time.deltaTime;
             }
+        }
+    }
+    private void Spawn()
+    {
+        foreach (GameObject go in objectsToSpawn)
+        {
+            Instantiate(go, transform.position, Quaternion.identity);
+            spawnTimer = spawnInterval;
         }
     }
 }

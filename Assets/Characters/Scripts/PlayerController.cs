@@ -3,14 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using WolfUISystem;
+using WolfUISystem.Presets;
 using static UnityEngine.InputSystem.InputAction;
 
 namespace GamePlay
 {
     public class PlayerController : MonoBehaviour, IPausableComponent, IDamagable
     {
+        public enum FaceDirection
+        {
+            Left,
+            Right,
+            None
+        }
+
         private static PlayerController instance;
         public static PlayerController Instance => instance;
+        [SerializeField]
+        GameObject graphics;
+        [SerializeField]
+        Animator animator;
+        public Animator Animator { get => animator; }
         [SerializeField]
         PlayerMovementBehaviour moveBehaviour;
         [SerializeField]
@@ -23,13 +37,18 @@ namespace GamePlay
         Cluemeter cluemeter;
         [SerializeField]
         Rigidbody2D rb;
+        [SerializeField]
+        AudioClip feetstepl;
+        [SerializeField]
+        AudioClip feetstepr;
+        HudScreen hud;
         public Weapon CurrentWeapon => attackBehaviour.CurrentWeapon;
 
         bool paused;
         bool controllable;
         public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
         public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
-
+        bool dead;
         private void Awake()
         {
             if (instance && instance != this)
@@ -45,10 +64,12 @@ namespace GamePlay
 
         private void Start()
         {
-            Initialize();
-            void Initialize()
+            InitializePlayer();
+            InitializeUI();
+            void InitializePlayer()
             {
                 controllable = true;
+                dead = false;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -62,6 +83,14 @@ namespace GamePlay
                     Debug.LogError("PlayerController: Could not found PlayerInput to initialize PlayerMovementBehaviour");
                 }
             }
+            void InitializeUI()
+            {
+                hud = UIManager.Instance.GetScreenComponent<HudScreen>();
+                hud.UpdatePlayerHealth(health.Value);
+                hud.UpdateClumeter(cluemeter.Value, cluemeter.MaxValue);
+                hud.UpdateAmmo(attackBehaviour.myGun.CurrentAmmo, attackBehaviour.myGun.ClipSize);
+                hud.ReloadDone();
+            }
         }
 
 
@@ -72,7 +101,14 @@ namespace GamePlay
             {
                 attackBehaviour.Update();
             }
-            Debug.Log(attackable);
+            if (attackBehaviour.faceDirectionPreference != FaceDirection.None)
+            {
+                FaceToward(attackBehaviour.faceDirectionPreference);
+            }
+            else
+            {
+                FaceToward(moveBehaviour.faceDirectionPreference);
+            }
         }
 
         private void FixedUpdate()
@@ -81,6 +117,11 @@ namespace GamePlay
             {
                 moveBehaviour.UpdateMovement();
             }
+        }
+
+        void FaceToward(FaceDirection direction)
+        {
+            graphics.transform.rotation = Quaternion.Euler(0, direction == FaceDirection.Left ? 180 : 0, 0);
         }
         public void Pause()
         {
@@ -94,31 +135,30 @@ namespace GamePlay
 
         public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
         {
-            if (source is BossDefaultWeaponProjectile bossDefaultProjectile)
+            if (damageType == IDamagable.DamageType.Health)
             {
-                Debug.Log("Player seduced by boss o 0");
+                health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+                OnHealthChanged(health.Value);
             }
-            else
+            else if (damageType == IDamagable.DamageType.Clue)
             {
-                if (damageType == IDamagable.DamageType.Health)
-                {
-                    health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
-                    OnHealthChanged(health.Value);
-                }
-                else if (damageType == IDamagable.DamageType.Clue)
-                {
-                    cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
-                    OnClueChanged(cluemeter.Value);
-                }
+                cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                OnClueChanged(cluemeter.Value);
             }
 
             void OnHealthChanged(int newHealth)
             {
-
+                if (newHealth == 0)
+                {
+                    dead = true;
+                    GameStatus.OnPlayerDead();
+                    WolfAudioSystem.AudioSystem.Instance.TransitionBGMQuick(GameCore.GameManager.Instance.ResourceLocator.audioSetup.Lv1Clip);
+                }
+                hud.UpdatePlayerHealth(newHealth);
             }
             void OnClueChanged(int newClue)
             {
-
+                hud.UpdateClumeter(newClue, cluemeter.MaxValue);
             }
         }
 
@@ -156,16 +196,22 @@ namespace GamePlay
                 float time = directionalDistance.magnitude / speed;
                 rb.velocity = directionalDistance.normalized * speed;
 
-                Debug.Log($"Player Pushed, Dst: {distination}");
                 yield return new WaitForSeconds(time);
                 rb.velocity = Vector2.zero;
                 controllable = true;
-                Debug.Log($"Player Pushed finished, EndPos: {transform.position}");
             }
         }
         public void ApplySpeedMultiplier(float multiplier)
         {
             moveBehaviour.speedMultiplier = multiplier;
+        }
+        public void WalkLeft()
+        {
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(feetstepl);
+        }
+        public void WalkRight()
+        {
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(feetstepr);
         }
     }
 }
