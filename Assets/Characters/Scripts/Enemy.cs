@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, IDamagable
         if (!dead)
         {
             dead = true;
-            GameCore.GameManager.Instance.Player.cluemeter.Value++;
+            GameCore.GameManager.Instance.OnPlayerKilledEnemy(this);
             Destroy(gameObject);
         }
     }

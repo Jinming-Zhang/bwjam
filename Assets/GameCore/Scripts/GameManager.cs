@@ -19,18 +19,7 @@ namespace GameCore
         [SerializeField]
         PlayerInput playerUIInput;
         public GameResourceLocator ResourceLocator;
-        LevelManager currentLevelManager
-        {
-            get
-            {
-                GameObject lm = GameObject.FindGameObjectWithTag("LevelManager");
-                if (lm)
-                {
-                    return lm.GetComponent<LevelManager>();
-                }
-                return null;
-            }
-        }
+        public LevelManager currentLevelManager;
         PlayerController player;
         public PlayerController Player
         {
@@ -90,15 +79,14 @@ namespace GameCore
         }
         public void ProgressToNextScene()
         {
-            string sceneName = Instance.progressTracker.GetNextRoom(player.cluemeter.Value, out bool fightBoss);
+            string sceneName = Instance.progressTracker.GetNextRoom(player.cluemeter.Value, out bool fightBoss, out bool startFromBeginning);
             if (fightBoss)
             {
                 AudioSystem.Instance.TransitionBGMQuick(ResourceLocator.audioSetup.BossFight);
             }
-            else
+            else if (startFromBeginning)
             {
                 player.cluemeter.Value = 0;
-                progressTracker.ResetStatus();
             }
             GameSequence.SwitchGameplayScene(sceneName);
         }
@@ -107,6 +95,13 @@ namespace GameCore
         {
             player.Health.Value = player.Health.MaxValue;
         }
+
+        public void OnPlayerKilledEnemy(Enemy killed)
+        {
+            player.cluemeter.Value++;
+            currentLevelManager.OnEnemyDead();
+        }
+
         int pauseRequestCount = 0;
         public void PauseGame()
         {
@@ -115,14 +110,15 @@ namespace GameCore
                 return;
             }
             pauseRequestCount++;
-            if (currentLevelManager != null)
-            {
-                currentLevelManager.PauseLevel();
-            }
-            else
-            {
-                Debug.LogWarning("GameManager: Failed pause game, no level manager found");
-            }
+            Time.timeScale = 0;
+            //if (currentLevelManager != null)
+            //{
+            //    currentLevelManager.PauseLevel();
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("GameManager: Failed pause game, no level manager found");
+            //}
         }
         public void ResumeGame()
         {
@@ -136,14 +132,15 @@ namespace GameCore
                 Debug.LogWarning($"GameManager: Consumed 1 Resume Request, {pauseRequestCount} left");
                 return;
             }
-            if (currentLevelManager != null)
-            {
-                currentLevelManager.ResumeLevel();
-            }
-            else
-            {
-                Debug.LogWarning("GameManager: Failed pause game, no level manager found");
-            }
+            Time.timeScale = 1;
+            //if (currentLevelManager != null)
+            //{
+            //currentLevelManager.ResumeLevel();
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("GameManager: Failed pause game, no level manager found");
+            //}
         }
 
         public void OnToggleIngameUIPressed(InputAction.CallbackContext ctx)

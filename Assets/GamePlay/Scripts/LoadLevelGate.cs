@@ -8,13 +8,16 @@ public class LoadLevelGate : MonoBehaviour
     string LevelName;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (string.IsNullOrEmpty(LevelName))
+        if (collision.GetComponent<GamePlay.PlayerController>())
         {
-            GameCore.GameManager.Instance.ProgressToNextScene();
-        }
-        else
-        {
-            GameSequence.SwitchGameplayScene(LevelName);
+            if (string.IsNullOrEmpty(LevelName))
+            {
+                GameCore.GameManager.Instance.ProgressToNextScene();
+            }
+            else
+            {
+                GameSequence.SwitchGameplayScene(LevelName);
+            }
         }
     }
 }

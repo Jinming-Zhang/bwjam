@@ -26,9 +26,10 @@ public class GameProgressTracker : MonoBehaviour
     {
         currentRoomInd = 0;
     }
-    public string GetNextRoom(int currentClue, out bool fightBoss)
+    public string GetNextRoom(int currentClue, out bool fightBoss, out bool startFromBeginning)
     {
         fightBoss = false;
+        startFromBeginning = false;
         currentRoomInd = Mathf.Min(gameOrder.Count, currentRoomInd + 1);
         RoomSceneMap current = gameOrder[currentRoomInd];
         if (current.roomType != RoomType.BossRoom)
@@ -45,8 +46,9 @@ public class GameProgressTracker : MonoBehaviour
             }
             else
             {
+                startFromBeginning = true;
                 currentRoomInd = 0;
-                return current.roomSceneNames[0];
+                return gameOrder[currentRoomInd].roomSceneNames[0];
             }
         }
     }
