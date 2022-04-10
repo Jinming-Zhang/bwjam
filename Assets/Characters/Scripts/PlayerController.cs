@@ -33,8 +33,9 @@ namespace GamePlay
         Transform weaponPosition;
         [SerializeField]
         Health health;
+        public Health Health => health;
         [SerializeField]
-        Cluemeter cluemeter;
+        public Cluemeter cluemeter;
         [SerializeField]
         Rigidbody2D rb;
         [SerializeField]
@@ -135,13 +136,19 @@ namespace GamePlay
         {
             if (damageType == IDamagable.DamageType.Health)
             {
-                health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
-                OnHealthChanged(health.Value);
+                if (cluemeter.Value > 0)
+                {
+                    cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                }
+                else
+                {
+                    health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+                    OnHealthChanged(health.Value);
+                }
             }
             else if (damageType == IDamagable.DamageType.Clue)
             {
                 cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
-                OnClueChanged(cluemeter.Value);
             }
 
             void OnHealthChanged(int newHealth)
@@ -149,16 +156,12 @@ namespace GamePlay
                 if (newHealth == 0)
                 {
                     GameStatus.OnPlayerDead();
+                    GameCore.GameManager.Instance.OnPlayerDead();
                     WolfAudioSystem.AudioSystem.Instance.TransitionBGMQuick(GameCore.GameManager.Instance.ResourceLocator.audioSetup.Lv1Clip);
                 }
                 hud.UpdatePlayerHealth(newHealth);
             }
-            void OnClueChanged(int newClue)
-            {
-                hud.UpdateClumeter(newClue, cluemeter.MaxValue);
-            }
         }
-
         public void Charmed(GameObject src, float duration, float speed)
         {
             controllable = false;

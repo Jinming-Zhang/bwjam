@@ -17,7 +17,7 @@ namespace WolfUISystem.Presets
         [SerializeField]
         TMPro.TextMeshProUGUI clueStatusTmp;
         [SerializeField]
-        Slider clueSlider;
+        Image clueSlider;
         [Header("Ammo")]
         [SerializeField]
         TMPro.TextMeshProUGUI ammoStatusTmp;
@@ -51,7 +51,7 @@ namespace WolfUISystem.Presets
         public void UpdateClumeter(int current, int max)
         {
             clueStatusTmp.text = $"{current}/{max}";
-            clueSlider.value = (float)current / max;
+            clueSlider.fillAmount = (float)current / max;
         }
         public void UpdateAmmo(int current, int max)
         {

@@ -473,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUIInput: {fileID: 1720203433}
   ResourceLocator: {fileID: 2240070104823535849}
+  progressTracker: {fileID: 186661257}
   ingame: 0
 --- !u!114 &2240070104823535849
 MonoBehaviour:
@@ -619,21 +620,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b847125b49241c644afbfa80308fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commonSceneLevelName: []
-  bossSceneLevelName: 
   gameOrder:
   - roomType: 0
-    roomSceneNames: []
-  - roomType: 0
-    roomSceneNames: []
-  - roomType: 0
-    roomSceneNames: []
-  - roomType: 0
-    roomSceneNames: []
-  - roomType: 0
-    roomSceneNames: []
-  - roomType: 0
-    roomSceneNames: []
+    roomSceneNames:
+    - LevelSelection
+  - roomType: 1
+    roomSceneNames:
+    - Room 5
+  - roomType: 2
+    roomSceneNames:
+    - Room 1
+    - Room 2
+    - Room 3
+    - Room 4
+  - roomType: 2
+    roomSceneNames:
+    - Room 1
+    - Room 2
+    - Room 3
+    - Room 4
+  - roomType: 3
+    roomSceneNames:
+    - EmptyRoomBeforeBoss
+  - roomType: 4
+    roomSceneNames:
+    - Boss Room
 --- !u!1001 &855154501067970526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -647,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.587e-42
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -687,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639522004, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: orthographic size
-      value: 1.55
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639522006, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_Name

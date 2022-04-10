@@ -166,8 +166,9 @@ namespace WolfUISystem.Presets
 			{
 				if (!string.IsNullOrEmpty(component.SpeechLine))
 				{
-					revealTextCR = StartCoroutine(RevealTextCR());
-				}
+					//revealTextCR = StartCoroutine(RevealTextCR());
+					speech.text = component.SpeechLine;
+                }
 				else
 				{
 					speech.text = string.Empty;

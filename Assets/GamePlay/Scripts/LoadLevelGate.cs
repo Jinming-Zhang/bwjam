@@ -5,12 +5,16 @@ using UnityEngine;
 public class LoadLevelGate : MonoBehaviour
 {
     [SerializeField]
-    string levelName;
+    string LevelName;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<GamePlay.PlayerController>())
+        if (string.IsNullOrEmpty(LevelName))
         {
-            GameSequence.SwitchGameplayScene(levelName);
+            GameCore.GameManager.Instance.ProgressToNextScene();
+        }
+        else
+        {
+            GameSequence.SwitchGameplayScene(LevelName);
         }
     }
 }

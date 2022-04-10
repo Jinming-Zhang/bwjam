@@ -19,10 +19,6 @@ public class GameProgressTracker : MonoBehaviour
         BossRoom
     }
 
-    [SerializeField]
-    List<string> commonSceneLevelName;
-    [SerializeField]
-    string bossSceneLevelName;
     public List<RoomSceneMap> gameOrder;
     int currentRoomInd;
 

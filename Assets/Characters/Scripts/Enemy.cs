@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour, IDamagable
     Animator animator;
     public Animator Animator => animator;
     AIMovementBehaviour movementBehaviour;
+    bool dead = false;
     private void Start()
     {
         movementBehaviour = ScriptableObject.Instantiate(movementBehaviourTemplate);
@@ -37,7 +38,12 @@ public class Enemy : MonoBehaviour, IDamagable
     }
     void Die()
     {
-        Destroy(gameObject);
+        if (!dead)
+        {
+            dead = true;
+            GameCore.GameManager.Instance.Player.cluemeter.Value++;
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)

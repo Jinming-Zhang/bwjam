@@ -6,6 +6,7 @@ using WolfUISystem;
 using WolfUISystem.Presets;
 using UnityEngine.SceneManagement;
 using GamePlay;
+using WolfAudioSystem;
 
 namespace GameCore
 {
@@ -46,6 +47,8 @@ namespace GameCore
                 return player;
             }
         }
+        public GameProgressTracker progressTracker;
+
         [SerializeField]
         bool ingame = false;
         private void Awake()
@@ -72,17 +75,38 @@ namespace GameCore
                 ingame = true;
             }
         }
+
         public void StartGame()
         {
+            progressTracker.ResetStatus();
             GameSequence.StartLevel1();
             ingame = true;
         }
         public void BackToIntroScreen()
         {
+            progressTracker.ResetStatus();
             GameSequence.BackToIntroScreen();
             ingame = false;
         }
+        public void ProgressToNextScene()
+        {
+            string sceneName = Instance.progressTracker.GetNextRoom(player.cluemeter.Value, out bool fightBoss);
+            if (fightBoss)
+            {
+                AudioSystem.Instance.TransitionBGMQuick(ResourceLocator.audioSetup.BossFight);
+            }
+            else
+            {
+                player.cluemeter.Value = 0;
+                progressTracker.ResetStatus();
+            }
+            GameSequence.SwitchGameplayScene(sceneName);
+        }
 
+        public void OnPlayerDead()
+        {
+            player.Health.Value = player.Health.MaxValue;
+        }
         int pauseRequestCount = 0;
         public void PauseGame()
         {
