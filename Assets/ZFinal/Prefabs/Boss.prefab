@@ -58,7 +58,7 @@ MonoBehaviour:
   fleeSpeed: 10
   fleetCD: 10
   perfume: {fileID: 6164130207379765748, guid: a9e7de54648cc2f4886292250293a704, type: 3}
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 2021883753087743438}
 --- !u!114 &4978402263130667124
 MonoBehaviour:
   m_ObjectHideFlags: 0

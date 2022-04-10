@@ -15,10 +15,10 @@ MonoBehaviour:
   criticalHitProbabilityMultiplier: 1
   criticalHitDmgMultiplier: 1
   fireSFX: {fileID: 0}
-  weaponAudioSource: {fileID: 0}
   owner: {fileID: 0}
-  bulletPerSec: 0
+  bulletPerSec: 1
   needReload: 0
+  reloadClip: {fileID: 0}
   clipSize: 111
   reloadTime: 0
   projectileTemplate: {fileID: 2000149371377675366, guid: 9f311b97226532342bbfd4f7854bacaa, type: 3}

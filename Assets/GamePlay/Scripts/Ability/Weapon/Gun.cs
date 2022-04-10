@@ -66,7 +66,7 @@ namespace GamePlay.Weapons
                     base.Fire(pos, direction);
                     for (int i = 0; i < splitAmount; i++)
                     {
-                        startDir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startDir;
+                        startDir = Quaternion.AngleAxis(splitAngle * i, Vector3.forward) * startDir.normalized;
                         Projectile p = Instantiate(projectileTemplate, pos.position, Quaternion.Euler(startDir));
 
                         p.Initiailze(owner);
