@@ -53,6 +53,7 @@ MonoBehaviour:
   defaultAbilityHitMovementBehaviour: {fileID: 11400000, guid: f364ec7ba4d632245badb2db07d95e0f, type: 2}
   defaultWeaponTransform: {fileID: 744271863897575782}
   meleeWeaponTransform: {fileID: 8781675069398722749}
+  meleeAttackRange: 1.26
   rb: {fileID: 8820447711537589356}
   health: {fileID: 4978402263130667124}
   fleeSpeed: 10
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphics: {fileID: 7814736097239758378}
+  isDefaultFacingRight: 1
   deadZoneRange: 0.3
 --- !u!1 &4048938176228258223
 GameObject:
@@ -147,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4048938176228258223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: -0.64, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796777571403667834}
@@ -316,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8780191741261283395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: -0.43, z: 0}
+  m_LocalPosition: {x: 0.092, y: -0.059, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796777571403667834}
@@ -332,8 +334,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3845824913438788628}
   - component: {fileID: 4905053443720812556}
+  - component: {fileID: 8371807853867362679}
   m_Layer: 0
-  m_Name: wife_0
+  m_Name: boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +396,7 @@ SpriteRenderer:
   m_SortingLayerID: -2100020123
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2353376327185201564, guid: 6f0be860e813a164587e6b00062ea5bd, type: 3}
+  m_Sprite: {fileID: -3234139972563773885, guid: 9a47297a259fe864bb7e8f942c8077e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -404,6 +407,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8371807853867362679
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861080002347366970}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8965360590362143173
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +538,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.35}
-  m_SizeDelta: {x: 4.2298, y: 0.6096}
+  m_AnchoredPosition: {x: 0, y: 1.369}
+  m_SizeDelta: {x: 4.2298, y: 0.3625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4635859289770078478
 Canvas:

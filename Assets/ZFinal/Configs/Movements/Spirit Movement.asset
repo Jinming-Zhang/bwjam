@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b31ea2fff5131429b7be7158e97c52, type: 3}
   m_Name: Spirit Movement
   m_EditorClassIdentifier: 
-  initialSpeed: 1.5
-  attackRange: 0.5
+  initialSpeed: 0.5
   weaponTemplate: {fileID: 11400000, guid: 49fab8a5d6d3cb144a5ed0b746eba468, type: 2}
   updateIngameSpeed: 1

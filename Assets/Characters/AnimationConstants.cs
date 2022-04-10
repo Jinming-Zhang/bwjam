@@ -15,5 +15,12 @@ public static class AnimationConstants
     // door
     public static string Door_Open = "doorOpen";
     public static string Door_Close = "doorClose";
+
+    // spirit enemy
+    public static string Spirit_Idle = "enemyDistanceIdle";
+    public static string Spirit_Spit = "enemyDistanceSpit";
+    public static string Spirit_Hit = "enemyDistanceHit";
+    public static string Spirit_Walk = "enemyDistanceWalk";
+    public static string Spirit_Die = "enemyDistanceDie";
 }
 

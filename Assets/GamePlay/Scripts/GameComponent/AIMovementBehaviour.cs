@@ -14,7 +14,6 @@ namespace GamePlay
         protected float ingameMovingSpeed;
 
         [Header("Attack")]
-        [SerializeField]
         protected float attackRange;
         [SerializeField]
         protected Weapon weaponTemplate;
@@ -55,6 +54,7 @@ namespace GamePlay
         }
 
         protected Transform weaponTransform;
+        Enemy me;
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
@@ -63,6 +63,8 @@ namespace GamePlay
             {
                 weaponTransform = wpnTran;
             }
+            me = owner.GetComponent<Enemy>();
+            attackRange = me.attackRange;
             weapon = Instantiate(weaponTemplate);
             weapon.Initialize(owner);
         }
@@ -81,11 +83,13 @@ namespace GamePlay
                 if (tarDirection.magnitude > attackRange)
                 {
                     rb.velocity = tarDirection.normalized * ingameMovingSpeed;
+                    me.DoWalkAnimation();
                 }
                 // attack player
                 else
                 {
                     rb.velocity = Vector2.zero;
+                    me.DoAttackAnimation();
                     weapon.Fire(weaponTransform, tarDirection);
                 }
             }

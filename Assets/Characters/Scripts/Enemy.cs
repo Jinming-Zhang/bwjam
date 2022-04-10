@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour, IDamagable
     AIMovementBehaviour movementBehaviourTemplate;
     [SerializeField]
     Transform weaponTransform;
+    public float attackRange;
+
     [SerializeField]
     UnityEngine.UI.Image healthBar;
 
@@ -21,39 +23,74 @@ public class Enemy : MonoBehaviour, IDamagable
     Animator animator;
     public Animator Animator => animator;
     AIMovementBehaviour movementBehaviour;
-    bool dead = false;
+    protected bool dead = false;
+
+
     private void Start()
     {
         movementBehaviour = ScriptableObject.Instantiate(movementBehaviourTemplate);
         movementBehaviour.Initialize(gameObject, weaponTransform);
         healthBar.fillAmount = 1;
     }
-    private void Update()
-    {
 
-    }
     private void FixedUpdate()
-    {
-        movementBehaviour.UpdateMovement();
-    }
-    void Die()
     {
         if (!dead)
         {
-            dead = true;
-            GameCore.GameManager.Instance.OnPlayerKilledEnemy(this);
-            Destroy(gameObject);
+            movementBehaviour.UpdateMovement();
         }
     }
 
+    public virtual void Die()
+    {
+        if (!dead)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            dead = true;
+            GameCore.GameManager.Instance.OnPlayerKilledEnemy(this);
+            OnDead();
+        }
+    }
+    public virtual void OnDead()
+    {
+
+    }
+    public virtual void OnDeadAnimationFinished()
+    {
+        Destroy(gameObject);
+    }
+
+    public virtual void DoIdleAnimation()
+    {
+
+    }
+    public virtual void DoAttackAnimation()
+    {
+
+    }
+    public virtual void DoDamagedAnimation()
+    {
+
+    }
+    public virtual void DoWalkAnimation()
+    {
+
+    }
     public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
     {
         health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
         healthBar.fillAmount = health.Value / (float)health.MaxValue;
+        DoDamagedAnimation();
         if (health.Value <= 0)
         {
             Die();
             GameStatus.OnPlayerKilledEnemy();
         }
     }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(weaponTransform.position, attackRange);
+    }
 }
+
