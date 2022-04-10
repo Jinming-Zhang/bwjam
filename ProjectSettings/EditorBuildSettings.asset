@@ -16,11 +16,11 @@ EditorBuildSettings:
     guid: 03616e8a03ab53248a1e4d382358510e
   - enabled: 1
     path: Assets/ZFinal/Room 2.unity
-    guid: 01b1767f45d595048bcd7f267f6fc9ce
+    guid: 1b042d6168484614ca4518a1f6cbda0c
   - enabled: 1
     path: Assets/ZFinal/Room 3.unity
-    guid: 67830fbfbbe2ab64e88ad544fdebb857
+    guid: 6f57b380efe699846b04ff5ec3b42a3b
   - enabled: 1
     path: Assets/ZFinal/Room 4.unity
-    guid: 7190968fd77a331468197cf6d7cd3511
+    guid: 47d24db003f13f948a5be1932ebfa351
   m_configObjects: {}

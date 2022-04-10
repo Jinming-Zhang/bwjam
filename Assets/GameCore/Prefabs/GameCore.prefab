@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 2240070104823535849}
   - component: {fileID: 7012276972539793097}
   - component: {fileID: 1720203433}
+  - component: {fileID: 186661257}
   m_Layer: 0
   m_Name: GameCore
   m_TagString: Untagged
@@ -589,11 +590,50 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e09d904e-37c2-4ac2-b132-ab6572f6bbe4
     m_ActionName: InGameUI/ToggleIngameUIOptions[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ac2e3fe-4d95-408f-baba-153c4af456c0
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b82a56d0-944d-4fd7-939a-71ef52a71155
+    m_ActionName: Player/Dodge[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bab1786-77d2-420f-867c-10330e9701c4
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: InGameUI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &186661257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240070104823535854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b847125b49241c644afbfa80308fdcef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commonSceneLevelName: []
+  bossSceneLevelName: 
+  gameOrder:
+  - roomType: 0
+    roomSceneNames: []
+  - roomType: 0
+    roomSceneNames: []
+  - roomType: 0
+    roomSceneNames: []
+  - roomType: 0
+    roomSceneNames: []
+  - roomType: 0
+    roomSceneNames: []
+  - roomType: 0
+    roomSceneNames: []
 --- !u!1001 &855154501067970526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1.8e-43
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalRotation.z
@@ -644,6 +684,10 @@ PrefabInstance:
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497532193639522004, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
+      propertyPath: orthographic size
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639522006, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_Name
