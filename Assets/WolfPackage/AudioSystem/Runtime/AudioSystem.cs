@@ -21,7 +21,7 @@ namespace WolfAudioSystem
         // so that it has correct volume when played multiple times
         float OverAllVolume => config.overAllVolume;
         float BGMVolume(float vol = 1) => Mathf.SmoothStep(0, 1, config.overAllVolume * config.musicVolume * vol);
-        float SFXVolume(float vol = 1) => Mathf.SmoothStep(0, 1, config.overAllVolume * config.sfxVolume * vol) * 1.3f;
+        float SFXVolume(float vol = 1) => Mathf.SmoothStep(0, 1, config.overAllVolume * config.sfxVolume * vol) * 1.6f;
 
         void Awake()
         {

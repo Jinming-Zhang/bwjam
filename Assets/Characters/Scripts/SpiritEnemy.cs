@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpiritEnemy : Enemy
 {
+    [SerializeField]
+    GameObject witnessAfterDead;
     public override void OnDead()
     {
         base.OnDead();

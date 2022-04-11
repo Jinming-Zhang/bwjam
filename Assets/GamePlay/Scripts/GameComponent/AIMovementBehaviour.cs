@@ -22,23 +22,7 @@ namespace GamePlay
         [Header("Config")]
         [SerializeField]
         protected bool updateIngameSpeed = true;
-        protected PlayerController player;
-        protected PlayerController Player
-        {
-            get
-            {
-                if (!player)
-                {
-
-                    GameObject go = GameObject.FindGameObjectWithTag("Player");
-                    if (go)
-                    {
-                        player = go.GetComponent<PlayerController>();
-                    }
-                }
-                return player;
-            }
-        }
+        protected PlayerController Player => GameCore.GameManager.Instance.Player;
 
         protected Rigidbody2D _rb;
         protected Rigidbody2D rb

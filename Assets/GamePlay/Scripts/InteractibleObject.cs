@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class InteractibleObject : MonoBehaviour, IIteractable
 {
     [SerializeField]
+    protected bool needInteraction = true;
+    [SerializeField]
     float interactionRange = 1f;
     [SerializeField]
     GameObject icon;
@@ -15,20 +17,20 @@ public abstract class InteractibleObject : MonoBehaviour, IIteractable
         icon.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerInteractor player = collision.GetComponent<PlayerInteractor>();
-        if (player)
+        if (player & needInteraction)
         {
             player.InteractTarget = this;
             icon.SetActive(true);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         PlayerInteractor player = collision.GetComponent<PlayerInteractor>();
-        if (player)
+        if (player & needInteraction)
         {
             player.InteractTarget = null;
             icon.SetActive(false);

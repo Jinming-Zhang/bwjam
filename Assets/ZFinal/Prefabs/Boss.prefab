@@ -53,7 +53,7 @@ MonoBehaviour:
   defaultAbilityHitMovementBehaviour: {fileID: 11400000, guid: f364ec7ba4d632245badb2db07d95e0f, type: 2}
   defaultWeaponTransform: {fileID: 744271863897575782}
   meleeWeaponTransform: {fileID: 8781675069398722749}
-  defaultAttackRange: 2.04
+  defaultAttackRange: 3.14
   meleeAttackRange: 0.39
   rb: {fileID: 8820447711537589356}
   health: {fileID: 4978402263130667124}

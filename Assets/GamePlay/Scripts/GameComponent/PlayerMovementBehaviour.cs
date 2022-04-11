@@ -36,7 +36,7 @@ namespace GamePlay
             {
                 playerInput.actions["Move"].performed += OnPlayerMovePerformed;
                 playerInput.actions["Move"].canceled += OnPlayerMoveCancelled;
-                playerInput.actions["Dodge"].canceled += OnPlayerDodgePerformed;
+                playerInput.actions["Dodge"].performed += OnPlayerDodgePerformed;
             }
             player = owner.GetComponent<PlayerController>();
             rb = owner.GetComponent<Rigidbody2D>();

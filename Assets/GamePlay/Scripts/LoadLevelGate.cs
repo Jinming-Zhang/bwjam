@@ -2,22 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadLevelGate : MonoBehaviour
+public class LoadLevelGate : InteractibleObject
 {
     [SerializeField]
     string LevelName;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public override void Interact(GameObject initiator)
     {
-        if (collision.GetComponent<GamePlay.PlayerController>())
+        GotoNextLevel();
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        if (!needInteraction)
         {
-            if (string.IsNullOrEmpty(LevelName))
+            if (collision.GetComponent<GamePlay.PlayerController>())
             {
-                GameCore.GameManager.Instance.ProgressToNextScene();
+                GotoNextLevel();
             }
-            else
-            {
-                GameSequence.SwitchGameplayScene(LevelName);
-            }
+        }
+    }
+
+    private void GotoNextLevel()
+    {
+        if (string.IsNullOrEmpty(LevelName))
+        {
+            GameCore.GameManager.Instance.ProgressToNextScene();
+        }
+        else
+        {
+            GameSequence.SwitchGameplayScene(LevelName);
         }
     }
 }

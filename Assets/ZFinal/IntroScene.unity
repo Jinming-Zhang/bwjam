@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ring: {fileID: 8300000, guid: fd661a3761757bc458951eb5426da1f4, type: 3}
+  door: {fileID: 0}
 --- !u!1 &1748055986
 GameObject:
   m_ObjectHideFlags: 0
