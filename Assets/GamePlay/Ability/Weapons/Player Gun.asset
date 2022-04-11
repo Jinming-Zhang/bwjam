@@ -22,5 +22,5 @@ MonoBehaviour:
   clipSize: 50
   reloadTime: 1
   projectileTemplate: {fileID: -5036434780792031313, guid: 2ce6ef003c3ac9146a3402d93ad4d78b, type: 3}
-  splitAmount: 11
+  splitAmount: 1
   splitAngle: 10

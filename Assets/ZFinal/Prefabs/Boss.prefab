@@ -49,17 +49,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c1cfa2156babc489b5e7a18a322a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMovementBehaviourTemplate: {fileID: 11400000, guid: f11472892de3b254490cf808801c087f, type: 2}
+  defaultMovementBehaviourTemplate: {fileID: 11400000, guid: 596cc41f807d8784c98d1a249122f0b5, type: 2}
   defaultAbilityHitMovementBehaviour: {fileID: 11400000, guid: f364ec7ba4d632245badb2db07d95e0f, type: 2}
   defaultWeaponTransform: {fileID: 744271863897575782}
   meleeWeaponTransform: {fileID: 8781675069398722749}
-  meleeAttackRange: 1.26
+  defaultAttackRange: 0.5
+  meleeAttackRange: 0.2
   rb: {fileID: 8820447711537589356}
   health: {fileID: 4978402263130667124}
   fleeSpeed: 10
   fleetCD: 10
   perfume: {fileID: 6164130207379765748, guid: a9e7de54648cc2f4886292250293a704, type: 3}
   healthbar: {fileID: 2021883753087743438}
+  animator: {fileID: 8371807853867362679}
 --- !u!114 &4978402263130667124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,8 +109,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.9798306, y: 3.9173863}
+  m_Offset: {x: 0, y: -0.05374241}
+  m_Size: {x: 0.39029562, y: 0.75349855}
   m_Direction: 0
 --- !u!114 &3039331628089919552
 MonoBehaviour:
@@ -149,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4048938176228258223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.284, y: -0.081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796777571403667834}
@@ -318,7 +320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8780191741261283395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.092, y: -0.059, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4796777571403667834}
@@ -335,6 +337,7 @@ GameObject:
   - component: {fileID: 3845824913438788628}
   - component: {fileID: 4905053443720812556}
   - component: {fileID: 8371807853867362679}
+  - component: {fileID: 8439068347366802719}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -349,9 +352,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8861080002347366970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.4179, y: 3.4179, z: 3.4179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 271589224965539549}
   m_RootOrder: 0
@@ -417,7 +420,7 @@ Animator:
   m_GameObject: {fileID: 8861080002347366970}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cfa76678a4be0f4f8fb264584834726, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -426,6 +429,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8439068347366802719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861080002347366970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6b3a07303984f46876776fd8c9d663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 693633521165899554}
 --- !u!1 &8965360590362143173
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,8 +554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.369}
-  m_SizeDelta: {x: 4.2298, y: 0.3625}
+  m_AnchoredPosition: {x: 0, y: 0.391}
+  m_SizeDelta: {x: 1.0799, y: 0.111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4635859289770078478
 Canvas:

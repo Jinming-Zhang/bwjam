@@ -22,5 +22,15 @@ public static class AnimationConstants
     public static string Spirit_Hit = "enemyDistanceHit";
     public static string Spirit_Walk = "enemyDistanceWalk";
     public static string Spirit_Die = "enemyDistanceDie";
+
+    // boss
+    public static string Boss_Idle = "bossIdle";
+    public static string Boss_Float = "bossFloat";
+    public static string Boss_Kiss = "bossKiss";
+    public static string Boss_Gun = "bossGun";
+    public static string Boss_Perfume = "bossPerfume";
+    public static string Boss_Hit = "bossHit";
+    public static string Boss_Die = "bossDie";
+
 }
 

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ba2fec336f3524593dd3ae11fe29f3, type: 3}
   m_Name: Boss Ability Hit
   m_EditorClassIdentifier: 
-  charmingMoveSpeed: 0.5
-  meleeAttackRange: 1.5
+  charmingMoveSpeed: 0.1
   bossEnoughNearWeapon: {fileID: 11400000, guid: 9b43c6e83f9c80f44acce0e33c1c4202, type: 2}
   bossNotNearEnougWeapon: {fileID: 11400000, guid: e10d32b719625d84cbf25836df8a9139, type: 2}

@@ -28,10 +28,8 @@ public class BossMeleeWeapon : Weapon
     {
         if (!fired)
         {
-            Debug.Log("Boss Fired Melee Weapon!");
             base.Fire(pos, direction);
             Boss me = owner.GetComponent<Boss>();
-            me.DoMeleeAttackAnimation();
 
             PlayerController player = GameCore.GameManager.Instance.Player;
             player.TakeDamage(healthDmg, me, IDamagable.DamageType.Health);
