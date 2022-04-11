@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b31ea2fff5131429b7be7158e97c52, type: 3}
   m_Name: Grandma Movement
   m_EditorClassIdentifier: 
-  initialSpeed: 0.2
-  attackRange: 4
+  initialSpeed: 0.5
   weaponTemplate: {fileID: 11400000, guid: 853d92bfc69889540b292efb44e317af, type: 2}
   updateIngameSpeed: 1
