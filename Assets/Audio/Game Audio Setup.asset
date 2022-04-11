@@ -18,6 +18,8 @@ MonoBehaviour:
   EnemyKill2: {fileID: 8300000, guid: 79b0ac0d8bb4133479beb4706df430ab, type: 3}
   EnemyKill3: {fileID: 8300000, guid: 03814f8453dd7c14ca61d7623fc5df86, type: 3}
   EnemyKill4: {fileID: 8300000, guid: 6f08eb7b2ab656948841e87141c827e0, type: 3}
-  EnemyKill5: {fileID: 0}
-  EnemyKill6: {fileID: 0}
   BossFight: {fileID: 8300000, guid: 87aab970a6e60b645a99d962c6a71d9e, type: 3}
+  PlayerDead: {fileID: 8300000, guid: 203177d5833cd874eac194d3e8a76185, type: 3}
+  PlayerHit: {fileID: 8300000, guid: 7a08b52de842e1e4490cce547f800578, type: 3}
+  BossKiss: {fileID: 0}
+  SpiritStab: {fileID: 8300000, guid: 23ed92a43c6440844b671bf04b0da9b4, type: 3}

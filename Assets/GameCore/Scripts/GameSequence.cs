@@ -56,15 +56,6 @@ public static class GameSequence
         t.FadeIn(() =>
         {
             SceneManager.LoadScene(sceneName);
-            GameObject playerSpawnPos = GameObject.FindGameObjectWithTag("PlayerSpawnPosition");
-            if (playerSpawnPos)
-            {
-                PlayerController player = GameManager.Instance.Player;
-                player.GetComponent<Rigidbody2D>().Sleep();
-                GameManager.Instance.Player.transform.position = playerSpawnPos.transform.position;
-                player.GetComponent<Rigidbody2D>().WakeUp();
-
-            }
             t.FadeOut(() => UIManager.Instance.PopScreen());
         });
     }
