@@ -31,6 +31,7 @@ public class PlayerAttackBehaviour : AttackBehaviour
             Vector3 mousePosToWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector2 direction = new Vector2(mousePosToWorld.x - weaponPos.position.x, mousePosToWorld.y - weaponPos.position.y);
             faceDirectionPreference = direction.x < 0 ? PlayerController.FaceDirection.Left : PlayerController.FaceDirection.Right;
+            weaponPos.transform.right = direction;
             weapon.Fire(weaponPos, direction);
         }
     }
