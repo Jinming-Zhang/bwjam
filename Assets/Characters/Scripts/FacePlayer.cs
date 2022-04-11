@@ -13,7 +13,7 @@ public class FacePlayer : MonoBehaviour
     GamePlay.PlayerController player => GameCore.GameManager.Instance.Player;
     private void Update()
     {
-        if (player)
+        if (player && graphics)
         {
             float x = player.transform.position.x - transform.position.x;
             if (Mathf.Abs(x) > deadZoneRange)

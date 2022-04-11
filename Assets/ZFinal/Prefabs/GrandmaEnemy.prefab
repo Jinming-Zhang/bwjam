@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.229
       objectReference: {fileID: 0}
+    - target: {fileID: 1423366089337081187, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1556949904979448831, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: weaponTransform
       value: 
