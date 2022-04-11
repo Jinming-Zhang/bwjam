@@ -53,8 +53,8 @@ MonoBehaviour:
   defaultAbilityHitMovementBehaviour: {fileID: 11400000, guid: f364ec7ba4d632245badb2db07d95e0f, type: 2}
   defaultWeaponTransform: {fileID: 744271863897575782}
   meleeWeaponTransform: {fileID: 8781675069398722749}
-  defaultAttackRange: 0.5
-  meleeAttackRange: 0.2
+  defaultAttackRange: 2.04
+  meleeAttackRange: 0.39
   rb: {fileID: 8820447711537589356}
   health: {fileID: 4978402263130667124}
   fleeSpeed: 10
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e8bbf5f7eeaa746afda45a7de2d19e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initial: 10000
+  initial: 30
 --- !u!50 &8820447711537589356
 Rigidbody2D:
   serializedVersion: 4
@@ -575,8 +575,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2100020123
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &2635471922280995214
 MonoBehaviour:

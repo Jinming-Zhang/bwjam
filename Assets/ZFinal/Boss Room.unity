@@ -715,21 +715,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 693633521165899554, guid: 591ab5474027d4342b8ce4509e2ea09a, type: 3}
-      propertyPath: meleeAttackRange
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 693633521165899554, guid: 591ab5474027d4342b8ce4509e2ea09a, type: 3}
-      propertyPath: defaultAttackRange
-      value: 2.04
-      objectReference: {fileID: 0}
     - target: {fileID: 1730877102158859525, guid: 591ab5474027d4342b8ce4509e2ea09a, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 1730877102158859525, guid: 591ab5474027d4342b8ce4509e2ea09a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 591ab5474027d4342b8ce4509e2ea09a, type: 3}

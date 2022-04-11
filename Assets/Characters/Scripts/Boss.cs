@@ -51,7 +51,7 @@ public class Boss : MonoBehaviour, IDamagable
     }
     private void FixedUpdate()
     {
-        if (currentMovementBehaviour)
+        if (currentMovementBehaviour && !isDying)
         {
             currentMovementBehaviour.UpdateMovement();
         }
@@ -121,6 +121,7 @@ public class Boss : MonoBehaviour, IDamagable
                 if (health.Value <= 0)
                 {
                     isDying = true;
+                    rb.velocity = Vector2.zero;
                     PlayAnimation(AnimationConstants.Boss_Die);
                 }
                 else
@@ -183,6 +184,11 @@ public class Boss : MonoBehaviour, IDamagable
     private void Fart()
     {
         Instantiate(perfume, transform.position, Quaternion.identity);
+    }
+
+    public void TheEnd()
+    {
+        Destroy(gameObject);
     }
     private void OnDrawGizmos()
     {
