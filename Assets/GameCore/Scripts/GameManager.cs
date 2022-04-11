@@ -55,6 +55,10 @@ namespace GameCore
         }
         private void Start()
         {
+            AudioSystem.Instance.TransitionBGMQuick(ResourceLocator.audioSetup.IntroClip);
+        }
+        public void Initialize()
+        {
             if (SceneManager.GetActiveScene().name.Equals("IntroScene"))
             {
                 GameSequence.TransitionToIntroScene();

@@ -13,8 +13,6 @@ public static class GameSequence
     static GameAudioSetup audioSetup => GameManager.Instance.ResourceLocator.audioSetup;
     public static void TransitionToIntroScene()
     {
-        AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
-
         IntroScreen intro = UIManager.Instance.PopAllAndSwitchToScreen<IntroScreen>();
         TransitionScreen t = UIManager.Instance.PushScreen<TransitionScreen>();
         t.FadeOut(() =>
@@ -29,13 +27,13 @@ public static class GameSequence
         t.FadeIn(() =>
         {
             SceneManager.LoadScene("IntroScene");
-            IntroScreen intro = UIManager.Instance.PushScreenUnderTop<IntroScreen>();
+            //IntroScreen intro = UIManager.Instance.PushScreenUnderTop<IntroScreen>();
 
             AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
             t.FadeOut(
                 () =>
                 {
-                    intro.gameObject.SetActive(true);
+                    //intro.gameObject.SetActive(true);
                     UIManager.Instance.PopScreen();
                 });
         });
@@ -45,8 +43,8 @@ public static class GameSequence
         TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
         t.FadeIn(() =>
         {
-            SceneManager.LoadScene("LevelSelection");
             AudioSystem.Instance.TransitionBGMQuick(audioSetup.Lv1Clip);
+            SceneManager.LoadScene("LevelSelection");
             t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<HudScreen>());
         });
     }
@@ -89,10 +87,10 @@ public static class GameSequence
         {
             GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>
             {
-                GameObject.Destroy(GameCore.GameManager.Instance.Player.gameObject);
+                GameObject.Destroy(GameManager.Instance.Player.gameObject);
                 SceneManager.LoadScene("IntroScene");
                 AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
-                t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<IntroScreen>());
+                t.FadeOut(() => UIManager.Instance.PopAllScreens());
             }));
         }, true);
 
@@ -108,7 +106,7 @@ public static class GameSequence
                 GameObject.Destroy(GameCore.GameManager.Instance.Player.gameObject);
                 SceneManager.LoadScene("IntroScene");
                 AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
-                t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<IntroScreen>());
+                t.FadeOut(() => UIManager.Instance.PopAllScreens());
             }));
 
         }, true);
