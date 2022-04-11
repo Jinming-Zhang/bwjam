@@ -8,6 +8,9 @@ public class EnemyDeadAnimationFinished : MonoBehaviour
     Enemy me;
     void OnDeadFinished()
     {
-        me.OnDeadAnimationFinished();
+        if (me)
+        {
+            me.OnDeadAnimationFinished();
+        }
     }
 }

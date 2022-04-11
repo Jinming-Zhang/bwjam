@@ -189,6 +189,7 @@ public class Boss : MonoBehaviour, IDamagable
     public void TheEnd()
     {
         Destroy(gameObject);
+        GameCore.GameManager.Instance.GameFinish(true);
     }
     private void OnDrawGizmos()
     {

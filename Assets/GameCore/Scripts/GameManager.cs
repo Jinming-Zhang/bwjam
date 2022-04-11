@@ -101,7 +101,7 @@ namespace GameCore
         }
         public void OnPlayerDead()
         {
-            player.Health.Value = player.Health.MaxValue;
+            GameSequence.GameEnd(false);
         }
 
         public void OnPlayerKilledEnemy(Enemy killed)
@@ -151,6 +151,10 @@ namespace GameCore
             //}
         }
 
+        public void GameFinish(bool success)
+        {
+            GameSequence.GameEnd(success);
+        }
         public void OnToggleIngameUIPressed(InputAction.CallbackContext ctx)
         {
             if (!ingame)

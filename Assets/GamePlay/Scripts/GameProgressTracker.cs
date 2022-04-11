@@ -30,7 +30,7 @@ public class GameProgressTracker : MonoBehaviour
     {
         fightBoss = false;
         startFromBeginning = false;
-        currentRoomInd = Mathf.Min(gameOrder.Count, currentRoomInd + 1);
+        currentRoomInd = Mathf.Min(gameOrder.Count - 1, currentRoomInd + 1);
         RoomSceneMap current = gameOrder[currentRoomInd];
         if (current.roomType != RoomType.BossRoom)
         {

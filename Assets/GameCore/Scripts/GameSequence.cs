@@ -70,5 +70,53 @@ public static class GameSequence
             t.FadeOut(() => UIManager.Instance.PopScreen());
         });
     }
+    public static void GameEnd(bool successful)
+    {
+        if (successful)
+        {
+            GameEndSuccessful();
+        }
+        else
+        {
+            GameFailed();
+        }
+    }
+    private static void GameEndSuccessful()
+    {
+        TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
+        t.SetTransitionMessage("Bye Bye Grandma!");
+        t.FadeIn(() =>
+        {
+            GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>
+            {
+                GameObject.Destroy(GameCore.GameManager.Instance.Player.gameObject);
+                SceneManager.LoadScene("IntroScene");
+                AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
+                t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<IntroScreen>());
+            }));
+        }, true);
+
+    }
+    private static void GameFailed()
+    {
+        TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
+        t.SetTransitionMessage("You Dead With Grandma");
+        t.FadeIn(() =>
+        {
+            GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>
+            {
+                GameObject.Destroy(GameCore.GameManager.Instance.Player.gameObject);
+                SceneManager.LoadScene("IntroScene");
+                AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
+                t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<IntroScreen>());
+            }));
+
+        }, true);
+    }
+    static IEnumerator WaitWithCB(float duration, System.Action cb)
+    {
+        yield return new WaitForSeconds(duration);
+        cb?.Invoke();
+    }
 }
 

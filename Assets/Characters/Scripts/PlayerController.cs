@@ -47,6 +47,7 @@ namespace GamePlay
 
         bool paused;
         bool controllable;
+        bool dead = false;
         public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
         public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
         private void Awake()
@@ -69,6 +70,7 @@ namespace GamePlay
             void InitializePlayer()
             {
                 controllable = true;
+                dead = false;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -155,9 +157,12 @@ namespace GamePlay
             {
                 if (newHealth == 0)
                 {
-                    GameStatus.OnPlayerDead();
-                    GameCore.GameManager.Instance.OnPlayerDead();
-                    WolfAudioSystem.AudioSystem.Instance.TransitionBGMQuick(GameCore.GameManager.Instance.ResourceLocator.audioSetup.Lv1Clip);
+                    if (!dead)
+                    {
+                        dead = true;
+                        GameStatus.OnPlayerDead();
+                        GameCore.GameManager.Instance.OnPlayerDead();
+                    }
                 }
                 hud.UpdatePlayerHealth(newHealth);
             }

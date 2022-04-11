@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour, IDamagable
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             dead = true;
             GameCore.GameManager.Instance.OnPlayerKilledEnemy(this);
+            GameStatus.OnPlayerKilledEnemy();
             OnDead();
         }
     }
@@ -84,7 +85,6 @@ public class Enemy : MonoBehaviour, IDamagable
         if (health.Value <= 0)
         {
             Die();
-            GameStatus.OnPlayerKilledEnemy();
         }
     }
     private void OnDrawGizmosSelected()
