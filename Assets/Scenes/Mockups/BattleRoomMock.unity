@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 1033564932}
   - component: {fileID: 1033564931}
   m_Layer: 0
-  m_Name: dentures-Sheet_0
+  m_Name: dentures
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
