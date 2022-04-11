@@ -79,12 +79,15 @@ public class Enemy : MonoBehaviour, IDamagable
     }
     public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
     {
-        health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
-        healthBar.fillAmount = health.Value / (float)health.MaxValue;
-        DoDamagedAnimation();
-        if (health.Value <= 0)
+        if (!dead)
         {
-            Die();
+            health.Value = Mathf.Max(0, health.Value - Mathf.FloorToInt(amount));
+            healthBar.fillAmount = health.Value / (float)health.MaxValue;
+            DoDamagedAnimation();
+            if (health.Value <= 0)
+            {
+                Die();
+            }
         }
     }
     private void OnDrawGizmosSelected()
