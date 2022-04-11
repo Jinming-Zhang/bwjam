@@ -16,13 +16,16 @@ public class Cluemeter : MonoBehaviour
         get => current;
         set
         {
-            current = value;
-            if (UIManager.Instance)
+            if (value <= MaxValue)
             {
-                HudScreen hud = UIManager.Instance.GetScreenComponent<HudScreen>();
-                if (hud)
+                current = value;
+                if (UIManager.Instance)
                 {
-                    hud.UpdateClumeter(Value, MaxValue);
+                    HudScreen hud = UIManager.Instance.GetScreenComponent<HudScreen>();
+                    if (hud)
+                    {
+                        hud.UpdateClumeter(Value, MaxValue);
+                    }
                 }
             }
         }

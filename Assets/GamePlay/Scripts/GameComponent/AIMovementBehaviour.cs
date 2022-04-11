@@ -73,7 +73,6 @@ namespace GamePlay
                 else
                 {
                     rb.velocity = Vector2.zero;
-                    me.DoAttackAnimation();
                     weapon.Fire(weaponTransform, tarDirection);
                 }
             }

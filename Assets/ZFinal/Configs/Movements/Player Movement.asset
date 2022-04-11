@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Movement
   m_EditorClassIdentifier: 
   initialMoveSpeed: 1.5
-  dodgingSpeedMultiplier: 2.5
+  dodgingSpeedMultiplier: 3
   dodgingDistance: 1
   speedMultiplier: 1
   faceDirectionPreference: 0

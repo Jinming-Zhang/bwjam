@@ -15,6 +15,7 @@ public class SpiritEnemy : Enemy
     public override void DoAttackAnimation()
     {
         base.DoAttackAnimation();
+        WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.SpiritStab);
         Animator.Play(AnimationConstants.Spirit_Spit);
     }
 
@@ -32,5 +33,14 @@ public class SpiritEnemy : Enemy
     {
         base.DoWalkAnimation();
         Animator.Play(AnimationConstants.Spirit_Walk);
+    }
+    public override void OnDeadAnimationFinished()
+    {
+        base.OnDeadAnimationFinished();
+        if (witnessAfterDead)
+        {
+            Instantiate(witnessAfterDead, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

@@ -359,7 +359,7 @@ MonoBehaviour:
   playSfxOnEnter: 1
   playSfxOnClick: 1
   sfxEnterClip: {fileID: 0}
-  sfxClickClip: {fileID: 0}
+  sfxClickClip: {fileID: 8300000, guid: 9b407fc50d1d3b54d985f9df44334a03, type: 3}
 --- !u!82 &4329247633439767265
 AudioSource:
   m_ObjectHideFlags: 0

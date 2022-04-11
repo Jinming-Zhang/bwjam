@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 860947172}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 977cc59e60bdb2a4ab21fe29337e8920, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1f1e7ce9dd93f5048881f74aee5c98f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4620d207bbeaca34c82bb808194c9955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  me: {fileID: 0}
+  me: {fileID: 6912035080168931742}
 --- !u!1001 &7433117314241047315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9082dabf412971c40862669f9cd9d6d8, type: 2}
     - target: {fileID: 2990495078925001141, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_Name
-      value: SpiritEnemy (1)
+      value: SpiritEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 2990495078925001141, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_Layer
@@ -221,11 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8292397033327310282, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.096
+      value: -0.131
       objectReference: {fileID: 0}
     - target: {fileID: 8292397033327310282, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.061
+      value: -0.051
       objectReference: {fileID: 0}
     - target: {fileID: 8294165982229759454, guid: f27dd2c3ed49f054887e7e2752429e09, type: 3}
       propertyPath: m_Layer
@@ -325,3 +325,4 @@ MonoBehaviour:
   healthBar: {fileID: 7907549342785904934}
   graphics: {fileID: 4238213945936638345}
   animator: {fileID: 3564782363079074459}
+  witnessAfterDead: {fileID: 0}

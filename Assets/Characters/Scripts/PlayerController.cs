@@ -141,11 +141,16 @@ namespace GamePlay
 
         public void TakeDamage(float amount, MonoBehaviour source, IDamagable.DamageType damageType = IDamagable.DamageType.Health)
         {
+            if (amount > 0 && camShakeCDCounter <= 0 && !dead)
+            {
+                StartCoroutine(CamShakeCR());
+            }
             if (damageType == IDamagable.DamageType.Health)
             {
                 if (cluemeter.Value > 0)
                 {
                     cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                    PlayHitSFX();
                 }
                 else
                 {
@@ -156,24 +161,36 @@ namespace GamePlay
             else if (damageType == IDamagable.DamageType.Clue)
             {
                 cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                PlayHitSFX();
             }
 
             void OnHealthChanged(int newHealth)
             {
-                if (amount > 0 && camShakeCDCounter <= 0)
-                {
-                    StartCoroutine(CamShakeCR());
-                }
                 if (newHealth == 0)
                 {
                     if (!dead)
                     {
                         dead = true;
+                        WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.PlayerDead);
                         GameStatus.OnPlayerDead();
                         GameCore.GameManager.Instance.OnPlayerDead();
                     }
                 }
+                else
+                {
+                    if (!dead)
+                    {
+                        PlayHitSFX();
+                    }
+                }
                 hud.UpdatePlayerHealth(newHealth);
+            }
+        }
+        void PlayHitSFX()
+        {
+            if (!dead)
+            {
+                WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.PlayerHit);
             }
         }
         public void Charmed(GameObject src, float duration, float speed)

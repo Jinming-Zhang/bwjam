@@ -27,6 +27,7 @@ namespace GamePlay.Weapons
             if (canAttack)
             {
                 base.Fire(pos, direction);
+                me.DoAttackAnimation();
                 Instantiate(weaponTemplate, pos);
                 canAttack = false;
                 GameCore.GameManager.Instance.StartCoroutine(CDTimerCR());

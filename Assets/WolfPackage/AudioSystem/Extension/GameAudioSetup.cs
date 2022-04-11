@@ -13,5 +13,12 @@ namespace WolfAudioSystem
 		public AudioClip EnemyKill3;
 		public AudioClip EnemyKill4;
 		public AudioClip BossFight;
+		// sfx for player
+		public AudioClip PlayerDead;
+		public AudioClip PlayerHit;
+		// sfx for boss
+		public AudioClip BossKiss;
+		// sfx for spirit enemy
+		public AudioClip SpiritStab;
 	}
 }
