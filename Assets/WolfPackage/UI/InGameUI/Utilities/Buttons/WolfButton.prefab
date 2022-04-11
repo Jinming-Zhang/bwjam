@@ -150,8 +150,7 @@ MonoBehaviour:
   triggerAnimPlayerOnChange: 0
   effectIntensityMultiplier: 50
   appearancesContainer:
-    tagsFallback_Appearances:
-    - size
+    tagsFallback_Appearances: []
     tagsFallback_Disappearances:
     - size
     values:
@@ -471,4 +470,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonTextTMP: {fileID: 4531820349508888609}
   buttonText: 
-  textEffect: shake

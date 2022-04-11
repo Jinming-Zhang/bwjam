@@ -7,6 +7,7 @@ TagManager:
   - LevelManager
   - RoomCorner
   - PlayerSpawnPosition
+  - SceneVC
   layers:
   - Default
   - TransparentFX

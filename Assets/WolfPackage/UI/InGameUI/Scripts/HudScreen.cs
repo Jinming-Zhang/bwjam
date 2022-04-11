@@ -23,6 +23,8 @@ namespace WolfUISystem.Presets
         TMPro.TextMeshProUGUI ammoStatusTmp;
         [Header("Reload")]
         [SerializeField]
+        GameObject reloadPanel;
+        [SerializeField]
         Image reloadImage;
 
         public override void Initialize()
@@ -62,11 +64,13 @@ namespace WolfUISystem.Presets
             reloadImage.fillAmount = current / max;
             if (!reloadImage.gameObject.activeSelf)
             {
+                reloadPanel.gameObject.SetActive(true);
                 reloadImage.gameObject.SetActive(true);
             }
         }
         public void ReloadDone()
         {
+            reloadPanel.gameObject.SetActive(false);
             reloadImage.gameObject.SetActive(false);
         }
         public void OnHelpButtonClicked()

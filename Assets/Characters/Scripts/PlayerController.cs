@@ -1,3 +1,4 @@
+using Cinemachine;
 using GamePlay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
@@ -50,6 +51,9 @@ namespace GamePlay
         bool dead = false;
         public float currentSpeedMultiplier => moveBehaviour.speedMultiplier;
         public bool attackable { get => attackBehaviour.Attackable; set => attackBehaviour.Attackable = value; }
+        [SerializeField]
+        float dmgCamShakeDuration = .3f;
+        float camShakeCDCounter;
         private void Awake()
         {
             if (instance && instance != this)
@@ -71,6 +75,7 @@ namespace GamePlay
             {
                 controllable = true;
                 dead = false;
+                camShakeCDCounter = 0;
                 PlayerInput playerInput = GetComponent<PlayerInput>();
                 if (playerInput)
                 {
@@ -155,6 +160,10 @@ namespace GamePlay
 
             void OnHealthChanged(int newHealth)
             {
+                if (amount > 0 && camShakeCDCounter <= 0)
+                {
+                    StartCoroutine(CamShakeCR());
+                }
                 if (newHealth == 0)
                 {
                     if (!dead)
@@ -204,6 +213,23 @@ namespace GamePlay
                 yield return new WaitForSeconds(time);
                 rb.velocity = Vector2.zero;
                 controllable = true;
+            }
+        }
+
+        IEnumerator CamShakeCR()
+        {
+            GameObject scenevcgo = GameObject.FindGameObjectWithTag("SceneVC");
+            if (scenevcgo)
+            {
+                camShakeCDCounter = dmgCamShakeDuration;
+                CinemachineVirtualCamera vc = scenevcgo.GetComponent<CinemachineVirtualCamera>();
+                CinemachineBasicMultiChannelPerlin noise = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                noise.m_AmplitudeGain = 0.2f;
+                noise.m_FrequencyGain = 60;
+                yield return new WaitForSeconds(dmgCamShakeDuration);
+                noise.m_AmplitudeGain = 0;
+                noise.m_FrequencyGain = 0;
+                camShakeCDCounter = 0;
             }
         }
         public void ApplySpeedMultiplier(float multiplier)
