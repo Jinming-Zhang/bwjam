@@ -24,7 +24,9 @@ namespace GamePlay.Weapons
 
         [Header("Ammo Splitting")]
         [SerializeField]
-        public int splitAmount = 1;
+        int initialSplit = 1;
+        [HideInInspector]
+        public int splitAmount;
         [SerializeField]
         float splitAngle = 10f;
 
@@ -38,6 +40,7 @@ namespace GamePlay.Weapons
             base.Initialize(owner, args);
             currentAmmo = clipSize;
             canAttack = true;
+            splitAmount = initialSplit;
             if (!needReload)
             {
                 currentAmmo = int.MaxValue;

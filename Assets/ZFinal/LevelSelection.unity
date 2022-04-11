@@ -822,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201000863753205088, guid: 06a0dd4ff86e68546997738b2905ced0, type: 3}
       propertyPath: LevelName
-      value: Boss Room
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8465891561439182809, guid: 06a0dd4ff86e68546997738b2905ced0, type: 3}
       propertyPath: m_Color.b

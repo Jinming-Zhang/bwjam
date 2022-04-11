@@ -7,6 +7,7 @@ using WolfUISystem.Presets;
 using UnityEngine.SceneManagement;
 using GamePlay;
 using WolfAudioSystem;
+using GamePlay.Weapons;
 
 namespace GameCore
 {
@@ -86,11 +87,18 @@ namespace GameCore
             }
             else if (startFromBeginning)
             {
+                ApplyPerks(player.cluemeter.Value);
                 player.cluemeter.Value = 0;
             }
             GameSequence.SwitchGameplayScene(sceneName);
         }
-
+        void ApplyPerks(int clueamount)
+        {
+            if (player.CurrentWeapon is Gun gun)
+            {
+                new BulletSplitUpdateCommand(gun, 1).Execute();
+            }
+        }
         public void OnPlayerDead()
         {
             player.Health.Value = player.Health.MaxValue;
