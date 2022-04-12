@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574c8b1259243f048b722850586cefc7, type: 3}
   m_Name: Player Movement
   m_EditorClassIdentifier: 
-  initialMoveSpeed: 1.5
+  initialMoveSpeed: 1.2
   dodgingSpeedMultiplier: 3
   dodgingDistance: 1
+  ingameMoveSpeed: 1.2
   speedMultiplier: 1
-  faceDirectionPreference: 0
+  updateSpeed: 1
+  faceDirectionPreference: 1

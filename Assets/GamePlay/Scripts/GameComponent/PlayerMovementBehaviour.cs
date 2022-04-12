@@ -16,7 +16,7 @@ namespace GamePlay
         [SerializeField]
         float dodgingDistance;
 
-        float ingameMoveSpeed;
+        public float ingameMoveSpeed;
         [HideInInspector]
         public float speedMultiplier = 1f;
         Vector2 movement;
@@ -26,6 +26,8 @@ namespace GamePlay
         Vector2 dodgingVelocity;
         float dodgingTimer = 0;
         PlayerController player;
+        [SerializeField]
+        bool updateSpeed;
         [HideInInspector]
         public PlayerController.FaceDirection faceDirectionPreference = PlayerController.FaceDirection.Right;
 
@@ -45,6 +47,10 @@ namespace GamePlay
 
         public override void UpdateMovement()
         {
+            if (updateSpeed)
+            {
+                ingameMoveSpeed = initialMoveSpeed;
+            }
             if (!isDodging)
             {
                 rb.velocity = ingameMoveSpeed * movement * speedMultiplier;

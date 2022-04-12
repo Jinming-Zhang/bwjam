@@ -27,7 +27,7 @@ namespace GamePlay
         Animator animator;
         public Animator Animator { get => animator; }
         [SerializeField]
-        PlayerMovementBehaviour moveBehaviour;
+        public PlayerMovementBehaviour moveBehaviour;
         [SerializeField]
         PlayerAttackBehaviour attackBehaviour;
         [SerializeField]
@@ -150,6 +150,7 @@ namespace GamePlay
                 if (cluemeter.Value > 0)
                 {
                     cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                    WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.gaugeDecrease);
                     PlayHitSFX();
                 }
                 else
@@ -161,6 +162,7 @@ namespace GamePlay
             else if (damageType == IDamagable.DamageType.Clue)
             {
                 cluemeter.Value = cluemeter.Value - Mathf.FloorToInt(amount);
+                WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.gaugeDecrease);
                 PlayHitSFX();
             }
 

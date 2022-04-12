@@ -27,6 +27,7 @@ public class GrandmaEnemy : Enemy
     public override void DoAttackAnimation()
     {
         base.DoAttackAnimation();
+        WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.rangeEnemyAttack);
         Animator.Play(AnimationConstants.Spirit_Spit);
     }
     public override void DoDamagedAnimation()

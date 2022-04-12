@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour, IDamagable
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             dead = true;
             GameCore.GameManager.Instance.OnPlayerKilledEnemy(this);
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.enemyDead);
             GameStatus.OnPlayerKilledEnemy();
             OnDead();
         }

@@ -92,15 +92,28 @@ namespace GameCore
             else if (startFromBeginning)
             {
                 ApplyPerks(player.cluemeter.Value);
-                player.cluemeter.Value = 0;
+                Player.cluemeter.Value = 0;
             }
             GameSequence.SwitchGameplayScene(sceneName);
         }
         void ApplyPerks(int clueamount)
         {
-            if (player.CurrentWeapon is Gun gun)
+            int cluecounter = clueamount;
+            if (Player.CurrentWeapon is Gun gun)
             {
                 new BulletSplitUpdateCommand(gun, 1).Execute();
+            }
+            cluecounter -= 2;
+            while (cluecounter > 0)
+            {
+                Player.moveBehaviour.ingameMoveSpeed += .2f;
+                cluecounter -= 2;
+                if (cluecounter < 0)
+                {
+                    break;
+                }
+                (Player.CurrentWeapon as Gun).bulletPerSecInGame += 1f;
+                cluecounter -= 2;
             }
         }
         public void OnPlayerDead()
@@ -111,6 +124,7 @@ namespace GameCore
         public void OnPlayerKilledEnemy(Enemy killed)
         {
             player.cluemeter.Value++;
+            WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.gagueIncrease);
             currentLevelManager.OnEnemyDead();
         }
 

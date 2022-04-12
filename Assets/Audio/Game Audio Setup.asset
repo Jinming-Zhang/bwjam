@@ -21,5 +21,9 @@ MonoBehaviour:
   BossFight: {fileID: 8300000, guid: 87aab970a6e60b645a99d962c6a71d9e, type: 3}
   PlayerDead: {fileID: 8300000, guid: 203177d5833cd874eac194d3e8a76185, type: 3}
   PlayerHit: {fileID: 8300000, guid: 7a08b52de842e1e4490cce547f800578, type: 3}
-  BossKiss: {fileID: 0}
+  BossKiss: {fileID: 8300000, guid: b96e691dd651e2647b07d45956dda8a2, type: 3}
   SpiritStab: {fileID: 8300000, guid: 23ed92a43c6440844b671bf04b0da9b4, type: 3}
+  enemyDead: {fileID: 8300000, guid: 3e103f0ec9bdbf847bf54eb224d39ae2, type: 3}
+  rangeEnemyAttack: {fileID: 8300000, guid: b28adbae46c16b649b16b67f7eb4193b, type: 3}
+  gagueIncrease: {fileID: 8300000, guid: 5fd1eeb3640e6b84ab9dd57bc2d71542, type: 3}
+  gaugeDecrease: {fileID: 8300000, guid: 7a9a2cbae9c2fa64ea6c299f035f78ca, type: 3}

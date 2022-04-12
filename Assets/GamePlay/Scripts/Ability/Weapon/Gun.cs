@@ -11,6 +11,8 @@ namespace GamePlay.Weapons
         [SerializeField]
         protected float bulletPerSec;
         [SerializeField]
+        public float bulletPerSecInGame;
+        [SerializeField]
         bool needReload = true;
         [SerializeField]
         AudioClip reloadClip;
@@ -32,12 +34,13 @@ namespace GamePlay.Weapons
 
         int currentAmmo;
         public int CurrentAmmo => currentAmmo;
-        public float cd => 1f / bulletPerSec;
+        public float cd => 1f / bulletPerSecInGame;
         bool canAttack = true;
         protected Coroutine reloadCR;
         public override void Initialize(GameObject owner, params object[] args)
         {
             base.Initialize(owner, args);
+            bulletPerSecInGame = bulletPerSec;
             currentAmmo = clipSize;
             canAttack = true;
             splitAmount = initialSplit;

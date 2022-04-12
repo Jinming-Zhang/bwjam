@@ -78,6 +78,7 @@ public class Boss : MonoBehaviour, IDamagable
 
     public void DoKissAnimation()
     {
+        WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.BossKiss);
         PlayAnimation(AnimationConstants.Boss_Kiss);
     }
 
