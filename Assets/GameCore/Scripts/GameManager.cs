@@ -40,6 +40,8 @@ namespace GameCore
         public GameProgressTracker progressTracker;
 
         [SerializeField]
+        public List<GameObject> enemyPoop;
+        [SerializeField]
         bool ingame = false;
         int unluckyCounter = 0;
         private void Awake()

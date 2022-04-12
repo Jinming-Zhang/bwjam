@@ -32,6 +32,8 @@ namespace GamePlay.Weapons
         [SerializeField]
         float splitAngle = 10f;
 
+        [SerializeField]
+        bool rotateBullet = true;
         int currentAmmo;
         public int CurrentAmmo => currentAmmo;
         public float cd => 1f / bulletPerSecInGame;
@@ -88,7 +90,10 @@ namespace GamePlay.Weapons
                     Projectile p = Instantiate(projectileTemplate, pos.position, Quaternion.Euler(dir));
 
                     p.Initiailze(owner);
-                    p.transform.right = dir;
+                    if (rotateBullet)
+                    {
+                        p.transform.right = dir;
+                    }
                     p.Launch(dir);
                 }
             }

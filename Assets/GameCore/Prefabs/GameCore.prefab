@@ -473,7 +473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUIInput: {fileID: 1720203433}
   ResourceLocator: {fileID: 2240070104823535849}
+  currentLevelManager: {fileID: 0}
   progressTracker: {fileID: 186661257}
+  enemyPoop:
+  - {fileID: 321441406295998118, guid: e42706c672e43114b96767fdfda7f8ac, type: 3}
+  - {fileID: 7747396990740808660, guid: 1dcdc990fe00cd0428ae238b53ac9a1d, type: 3}
+  - {fileID: 5185522916634056537, guid: 987b3ca465520c6439952837e09b52d9, type: 3}
+  - {fileID: 9046320620972304985, guid: 82e2c9d24cd3ff74987532997040ca01, type: 3}
+  - {fileID: 927087363515355005, guid: aba778a42e37fae4fb4d2f0cb0661506, type: 3}
   ingame: 0
 --- !u!114 &2240070104823535849
 MonoBehaviour:
@@ -658,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.587e-42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639521963, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_LocalPosition.y
@@ -698,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639522004, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1497532193639522006, guid: c6aae53144e9507459ac33130cfd5b91, type: 3}
       propertyPath: m_Name

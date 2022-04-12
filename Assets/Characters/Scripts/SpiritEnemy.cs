@@ -37,10 +37,8 @@ public class SpiritEnemy : Enemy
     public override void OnDeadAnimationFinished()
     {
         base.OnDeadAnimationFinished();
-        if (witnessAfterDead)
-        {
-            Instantiate(witnessAfterDead, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        GameObject tar = GameCore.GameManager.Instance.enemyPoop[Random.Range(0, GameCore.GameManager.Instance.enemyPoop.Count)];
+        Instantiate(tar, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
