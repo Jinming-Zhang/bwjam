@@ -27,7 +27,7 @@ namespace GamePlay
         float dodgingTimer = 0;
         [SerializeField]
         float dodgeCd = 3f;
-        float canDodge = true;
+        bool canDodge = true;
         PlayerController player;
         [SerializeField]
         bool updateSpeed;
