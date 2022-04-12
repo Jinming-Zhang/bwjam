@@ -73,7 +73,7 @@ public static class GameSequence
     private static void GameEndSuccessful()
     {
         TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
-        t.SetTransitionMessage("Bye Bye Grandma!");
+        t.SetTransitionMessage("You Defeat the Crime!");
         t.FadeIn(() =>
         {
             GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>
@@ -89,7 +89,7 @@ public static class GameSequence
     private static void GameFailed()
     {
         TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
-        t.SetTransitionMessage("You Dead With Grandma");
+        t.SetTransitionMessage("You Dead...Stay Determined!");
         t.FadeIn(() =>
         {
             GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>

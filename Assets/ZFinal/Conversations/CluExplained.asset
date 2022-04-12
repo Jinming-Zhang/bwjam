@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd64c7f539faab47b88c3130ce3454f, type: 3}
+  m_Name: CluExplained
+  m_EditorClassIdentifier: 
+  DialogueComponents:
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: Before you is the gate of truth...
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: If your clue is high enough, it will lead you to the crime.
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: If not, you will have to start for beginning
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: Well, we won't let you went through all that enemies for nothing...
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: We will grant you some random power-ups based on how much clue you have
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: With that said, GOOD LUCK DETECTIVE!

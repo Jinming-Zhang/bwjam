@@ -7,8 +7,6 @@ public abstract class InteractibleObject : MonoBehaviour, IIteractable
     [SerializeField]
     protected bool needInteraction = true;
     [SerializeField]
-    float interactionRange = 1f;
-    [SerializeField]
     GameObject icon;
     public abstract void Interact(GameObject initiator);
 
@@ -35,11 +33,5 @@ public abstract class InteractibleObject : MonoBehaviour, IIteractable
             player.InteractTarget = null;
             icon.SetActive(false);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
 }

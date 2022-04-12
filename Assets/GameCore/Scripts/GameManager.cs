@@ -41,6 +41,7 @@ namespace GameCore
 
         [SerializeField]
         bool ingame = false;
+        int unluckyCounter = 0;
         private void Awake()
         {
             if (instance && instance != this)
@@ -59,6 +60,7 @@ namespace GameCore
         }
         public void Initialize()
         {
+            unluckyCounter = 0;
             if (SceneManager.GetActiveScene().name.Equals("IntroScene"))
             {
                 GameSequence.TransitionToIntroScene();
@@ -78,6 +80,7 @@ namespace GameCore
         }
         public void BackToIntroScreen()
         {
+            unluckyCounter = 0;
             progressTracker.ResetStatus();
             GameSequence.BackToIntroScreen();
             ingame = false;
@@ -87,10 +90,15 @@ namespace GameCore
             string sceneName = Instance.progressTracker.GetNextRoom(player.cluemeter.Value, out bool fightBoss, out bool startFromBeginning);
             if (fightBoss)
             {
+                if (unluckyCounter == 0)
+                {
+                    ApplyPerks(player.cluemeter.Value);
+                }
                 AudioSystem.Instance.TransitionBGMQuick(ResourceLocator.audioSetup.BossFight);
             }
             else if (startFromBeginning)
             {
+                unluckyCounter++;
                 ApplyPerks(player.cluemeter.Value);
                 Player.cluemeter.Value = 0;
             }
