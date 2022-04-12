@@ -73,6 +73,8 @@ public static class GameSequence
     private static void GameEndSuccessful()
     {
         TransitionScreen t = UIManager.Instance.PopAllAndSwitchToScreen<TransitionScreen>();
+        float oldtime = t.TransitionTime;
+        t.TransitionTime = 6f;
         t.SetTransitionMessage("You Defeat the Crime!");
         t.FadeIn(() =>
         {
@@ -81,7 +83,11 @@ public static class GameSequence
                 GameObject.Destroy(GameManager.Instance.Player.gameObject);
                 SceneManager.LoadScene("IntroScene");
                 AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
-                t.FadeOut(() => UIManager.Instance.PopAllScreens());
+                t.FadeOut(() =>
+                {
+                    t.TransitionTime = oldtime;
+                    UIManager.Instance.PopAllScreens();
+                });
             }));
         }, true);
 
