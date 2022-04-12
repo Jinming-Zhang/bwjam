@@ -18,22 +18,10 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: There is a new case for you
+    Speech: The handbag of a lady.
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: A old woman was found dead tonight.
-  - BackgroundSprite: {fileID: 0}
-    characterSprite: {fileID: 0}
-    characterName: 
-    keepPreviousBackground: 0
-    options: []
-    Speech: She's filthy rich and heirless
-  - BackgroundSprite: {fileID: 0}
-    characterSprite: {fileID: 0}
-    characterName: 
-    keepPreviousBackground: 0
-    options: []
-    Speech: Suspects are still in the manor, do your thing.
+    Speech: It smells of blood

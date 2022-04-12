@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cd64c7f539faab47b88c3130ce3454f, type: 3}
-  m_Name: knife
+  m_Name: Phone
   m_EditorClassIdentifier: 
   DialogueComponents:
   - BackgroundSprite: {fileID: 0}
@@ -18,10 +18,22 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: It's not the murder weapon
+    Speech: There is a new case for you
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: But it's weird to see a big knife on the floor
+    Speech: An old woman was found dead tonight
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: She's rich and heirless
+  - BackgroundSprite: {fileID: 0}
+    characterSprite: {fileID: 0}
+    characterName: 
+    keepPreviousBackground: 0
+    options: []
+    Speech: Suspects are still in the manor, do your thing.

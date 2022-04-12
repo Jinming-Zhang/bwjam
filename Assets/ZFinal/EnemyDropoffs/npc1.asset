@@ -18,13 +18,13 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: There is a new case for you
+    Speech: 'I heard the gunshot! '
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: A old woman was found dead tonight.
+    Speech: The old lady was my neighbor you see...
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
@@ -36,4 +36,4 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: Suspects are still in the manor, do your thing.
+    Speech: I swear I saw someone gettig out of her manor just after!
