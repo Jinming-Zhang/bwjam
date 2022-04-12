@@ -9,30 +9,30 @@ public class SpiritEnemy : Enemy
     public override void OnDead()
     {
         base.OnDead();
-        Animator.Play(AnimationConstants.Spirit_Die);
+        Animator.Play(AnimationConstants.Melee_Die);
     }
 
     public override void DoAttackAnimation()
     {
         base.DoAttackAnimation();
         WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.SpiritStab);
-        Animator.Play(AnimationConstants.Spirit_Spit);
+        Animator.Play(AnimationConstants.Melee_Attack);
     }
 
     public override void DoIdleAnimation()
     {
         base.DoIdleAnimation();
-        Animator.Play(AnimationConstants.Spirit_Idle);
+        Animator.Play(AnimationConstants.Melee_Idle);
     }
     public override void DoDamagedAnimation()
     {
         base.DoDamagedAnimation();
-        Animator.Play(AnimationConstants.Spirit_Hit);
+        Animator.Play(AnimationConstants.Melee_Hit);
     }
     public override void DoWalkAnimation()
     {
         base.DoWalkAnimation();
-        Animator.Play(AnimationConstants.Spirit_Walk);
+        Animator.Play(AnimationConstants.Melee_Walk);
     }
     public override void OnDeadAnimationFinished()
     {

@@ -23,6 +23,12 @@ public static class AnimationConstants
     public static string Spirit_Walk = "enemyDistanceWalk";
     public static string Spirit_Die = "enemyDistanceDie";
 
+    // melee enemy
+    public static string Melee_Idle = "meleeIdle";
+    public static string Melee_Die = "meleeDie";
+    public static string Melee_Walk = "meleeWalk";
+    public static string Melee_Attack = "meleeAttack";
+    public static string Melee_Hit = "meleeHit";
     // boss
     public static string Boss_Idle = "bossIdle";
     public static string Boss_Float = "bossFloat";
