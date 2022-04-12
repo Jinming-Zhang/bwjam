@@ -115,6 +115,17 @@ namespace GamePlay
             {
                 FaceToward(moveBehaviour.faceDirectionPreference);
             }
+
+            if (Health.Value <= 0)
+            {
+                if (!dead)
+                {
+                    dead = true;
+                    WolfAudioSystem.AudioSystem.Instance.PlaySFXOnCamera(GameCore.GameManager.Instance.ResourceLocator.audioSetup.PlayerDead);
+                    GameStatus.OnPlayerDead();
+                    GameCore.GameManager.Instance.OnPlayerDead();
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -168,7 +179,7 @@ namespace GamePlay
 
             void OnHealthChanged(int newHealth)
             {
-                if (newHealth == 0)
+                if (newHealth <= 0)
                 {
                     if (!dead)
                     {
