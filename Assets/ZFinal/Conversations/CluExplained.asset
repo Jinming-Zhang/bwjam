@@ -30,19 +30,19 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: If not, you will have to start for beginning
+    Speech: If not, you will have to start from the beginning
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: Well, we won't let you went through all that enemies for nothing...
+    Speech: Well, we're not gonna let you fight all his enemies for nothing..
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: We will grant you some random power-ups based on how much clue you have
+    Speech: We will grant you some power-ups based on how much clue you have
   - BackgroundSprite: {fileID: 0}
     characterSprite: {fileID: 0}
     characterName: 

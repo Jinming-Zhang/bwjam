@@ -30,10 +30,4 @@ MonoBehaviour:
     characterName: 
     keepPreviousBackground: 0
     options: []
-    Speech: She's filthy rich and heirless
-  - BackgroundSprite: {fileID: 0}
-    characterSprite: {fileID: 0}
-    characterName: 
-    keepPreviousBackground: 0
-    options: []
-    Speech: I swear I saw someone gettig out of her manor just after!
+    Speech: I swear I saw someone getting out of her manor just after!
