@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1942,6 +1942,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201397832}
     m_Modifications:
+    - target: {fileID: 3717990939973751451, guid: 3d632d6af3ecc584a9728a2bda5e3281, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717990939973751451, guid: 3d632d6af3ecc584a9728a2bda5e3281, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5667749064218004134, guid: 3d632d6af3ecc584a9728a2bda5e3281, type: 3}
       propertyPath: m_Name
       value: SpiritEnemy (2)
