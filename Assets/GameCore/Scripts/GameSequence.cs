@@ -94,10 +94,9 @@ public static class GameSequence
         {
             GameManager.Instance.StartCoroutine(WaitWithCB(2f, () =>
             {
-                GameObject.Destroy(GameCore.GameManager.Instance.Player.gameObject);
-                SceneManager.LoadScene("IntroScene");
-                AudioSystem.Instance.TransitionBGMQuick(audioSetup.IntroClip);
-                t.FadeOut(() => UIManager.Instance.PopAllScreens());
+                AudioSystem.Instance.TransitionBGMQuick(audioSetup.Lv1Clip);
+                SceneManager.LoadScene("LevelSelection");
+                t.FadeOut(() => UIManager.Instance.PopAllAndSwitchToScreen<HudScreen>());
             }));
 
         }, true);
