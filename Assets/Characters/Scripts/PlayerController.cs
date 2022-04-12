@@ -198,7 +198,7 @@ namespace GamePlay
         public void Charmed(GameObject src, float duration, float speed)
         {
             controllable = false;
-            StopAllCoroutines();
+            StopAllCR();
 
             Vector2 direction = src.transform.position - gameObject.transform.position;
             rb.velocity = direction.normalized * speed;
@@ -219,7 +219,7 @@ namespace GamePlay
         public void ForcePush(Vector2 distination, float speed)
         {
             controllable = false;
-            StopAllCoroutines();
+            StopAllCR();
             StartCoroutine(ForcePushedCR());
 
             IEnumerator ForcePushedCR()
@@ -233,6 +233,20 @@ namespace GamePlay
                 rb.velocity = Vector2.zero;
                 controllable = true;
             }
+        }
+
+        void StopAllCR()
+        {
+            GameObject scenevcgo = GameObject.FindGameObjectWithTag("SceneVC");
+            if (scenevcgo)
+            {
+                CinemachineVirtualCamera vc = scenevcgo.GetComponent<CinemachineVirtualCamera>();
+                CinemachineBasicMultiChannelPerlin noise = vc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                noise.m_AmplitudeGain = 0;
+                noise.m_FrequencyGain = 0;
+                camShakeCDCounter = 0;
+            }
+            StopAllCoroutines();
         }
 
         IEnumerator CamShakeCR()
