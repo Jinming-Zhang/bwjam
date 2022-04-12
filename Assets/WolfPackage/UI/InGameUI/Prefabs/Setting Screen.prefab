@@ -1734,7 +1734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Audio:\n\t\tD"
+  m_text: "Audio:\n\t\tDvalkyrie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c3d65021173033e4abb234f875492ff7, type: 2}
   m_sharedMaterial: {fileID: 1909443308595608638, guid: c3d65021173033e4abb234f875492ff7, type: 2}

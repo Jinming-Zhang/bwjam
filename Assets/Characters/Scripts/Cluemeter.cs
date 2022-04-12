@@ -16,7 +16,7 @@ public class Cluemeter : MonoBehaviour
         get => current;
         set
         {
-            if (value <= MaxValue)
+            if (value <= MaxValue && value >= 0)
             {
                 current = value;
                 if (UIManager.Instance)
