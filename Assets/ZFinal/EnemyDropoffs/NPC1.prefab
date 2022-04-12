@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needInteraction: 1
   icon: {fileID: 8715264904070497737}
-  conversation: {fileID: 11400000, guid: 436757df66227a4438d7eacc868a3eda, type: 2}
+  conversation: {fileID: 11400000, guid: 3966925366a6c504da3367def8ddc4fe, type: 2}
 --- !u!58 &3714503888907692365
 CircleCollider2D:
   m_ObjectHideFlags: 0

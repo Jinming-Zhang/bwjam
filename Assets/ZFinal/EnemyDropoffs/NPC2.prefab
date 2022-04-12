@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   needInteraction: 1
   icon: {fileID: 695110041136750829}
-  conversation: {fileID: 11400000, guid: 436757df66227a4438d7eacc868a3eda, type: 2}
+  conversation: {fileID: 11400000, guid: 23cc7e7399a42904cbece98b8d99a3f6, type: 2}
 --- !u!58 &4817655591346900073
 CircleCollider2D:
   m_ObjectHideFlags: 0
